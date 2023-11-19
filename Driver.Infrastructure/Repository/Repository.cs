@@ -1,128 +1,95 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Dapper;
 using Driver.Common.Abstraction.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace Driver.Infrastructure.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly DbContext Context;
-        protected DbSet<T> DbSet;
-
-        public Repository(DbContext context)
+        private readonly IDbConnection _dbConnection;
+        private readonly IDbTransaction _dbTransaction;
+        public Repository(IDbConnection dbConnection, IDbTransaction dbTransaction)
         {
-            Context = context;
-            DbSet = Context.Set<T>();
+            _dbConnection = dbConnection;
+            _dbTransaction = dbTransaction;
         }
 
-        public async Task<T> GetAsync(params object[] keys)
+        public async Task<T> GetAsync(Guid id)
         {
-            return await DbSet.FindAsync(keys);
+            var query = BuildSelectQuery();
+            return await _dbConnection.QueryFirstOrDefaultAsync<T>(query, new { Id = id });
         }
 
-        public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IOrderedQueryable<T>> orderby = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            IQueryable<T> query = DbSet;
-            if (disableTracking)
-            {
-                query = query.AsNoTracking();
-            }
-            if (orderby != null)
-            {
-                query = orderby(query);
-            }
-            if (predicate != null)
-            {
-                query = query.Where(predicate);
-            }
-            if (include != null)
-            {
-                query = include(query).AsSplitQuery();
-            }
-            return await query.FirstOrDefaultAsync();
-
+            var query = BuildSelectAllQuery();
+            return await _dbConnection.QueryAsync<T>(query);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync( Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
-        {
-            IQueryable<T> query = DbSet;
-            if (disableTracking)
-            {
-                query = query.AsNoTracking();
-            }
-            if (include != null)
-            {
-                query = include(query).AsSplitQuery();
-            }
-            return await query.ToListAsync();
-        }
-        
-        public async Task<int> Count(Expression<Func<T, bool>> predicate = null) => predicate == null ? await DbSet.CountAsync() : await DbSet.CountAsync(predicate);
 
-        public async Task<TB> Max<TB>(Expression<Func<T, TB>> selector, Expression<Func<T, bool>> predicate = null)
+        public async Task<T> AddAsync(T entity)
         {
-            if (predicate == null)
-                return await DbSet.MaxAsync(selector);
-            return await DbSet.Where(predicate).MaxAsync(selector);
+            var query = BuildInsertQuery();
+            await _dbConnection.ExecuteAsync(query, entity, transaction: _dbTransaction);
+            return entity;
         }
 
-        public async Task<bool> Any(Expression<Func<T, bool>> predicate = null) => predicate == null ? await DbSet.AnyAsync() : await DbSet.AnyAsync(predicate);
 
-        public T Add(T newEntity)
+        public async Task<T> UpdateAsync(T entity)
         {
-            return DbSet.Add(newEntity).Entity;
+            var query = BuildUpdateQuery();
+            await _dbConnection.ExecuteAsync(query, entity, transaction: _dbTransaction);
+            return entity;
         }
 
-        public void AddRange(IEnumerable<T> entities)
+
+        public async Task<bool> DeleteAsync(T entity)
         {
-            DbSet.AddRange(entities);
+            var query = BuildDeleteQuery();
+            var rows = await _dbConnection.ExecuteAsync(query, transaction: _dbTransaction);
+            return rows > 0;
         }
 
-        public void Update(T originalEntity, T newEntity)
+
+        private string BuildInsertQuery()
         {
-            Context.Entry(originalEntity).CurrentValues.SetValues(newEntity);
+            var properties = GetProperties();
+            var columns = string.Join(", ", properties.Select(p => p.Name));
+            var values = string.Join(", ", properties.Select(p => "@" + p.Name));
+            return $"INSERT INTO {typeof(T).Name}s ({columns}) VALUES ({values})";
         }
 
-        public async Task UpdateAsync(object id, T newEntity)
+        private string BuildUpdateQuery()
         {
-            var originalEntity = await DbSet.FindAsync(id);
-            if (originalEntity != null) Context.Entry((object)originalEntity).CurrentValues.SetValues(newEntity);
+            var properties = GetProperties().Where(p => !p.Name.Equals("Id"));
+            var setClause = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));
+            return $"UPDATE {typeof(T).Name}s SET {setClause} WHERE Id = @Id";
         }
 
-        public void UpdateRange(IEnumerable<T> newEntities)
+
+        private string BuildSelectQuery()
         {
-            Context.UpdateRange(newEntities);
+            return $"SELECT * FROM {typeof(T).Name}s WHERE Id = @Id";
         }
 
-        public void Remove(T entity)
+        private string BuildDeleteQuery()
         {
-            DbSet.Remove(entity);
+            return $"DELETE FROM {typeof(T).Name}s WHERE Id = @Id";
         }
 
-        public void RemoveLogical(T entity)
+        private string BuildSelectAllQuery()
         {
-            var type = entity.GetType();
-            var property = type.GetProperty("IsDeleted");
-            if (property != null) property.SetValue(entity, true);
-            var id = type.GetProperty("Id")?.GetValue(entity);
-            var original = DbSet.Find(id);
-            Update(original, entity);
+            return $"SELECT * FROM {typeof(T).Name}s";
         }
 
-        public async void Remove(Expression<Func<T, bool>> predicate)
-        {
-            var objects = await DbSet.FindAsync(predicate);
-            if (objects != null) DbSet.RemoveRange(objects);
-        }
 
-        public void RemoveRange(IEnumerable<T> entities)
+        private IEnumerable<System.Reflection.PropertyInfo> GetProperties()
         {
-            DbSet.RemoveRange(entities);
+            return typeof(T).GetProperties();
         }
 
     }

@@ -79,9 +79,9 @@
             <param name="configuration"></param>
             <returns></returns>
         </member>
-        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterDbConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            Add DbContext
+            Add Register Db Configuration
             </summary>
             <param name="services"></param>
             <param name="configuration"></param>

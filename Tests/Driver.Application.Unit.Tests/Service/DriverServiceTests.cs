@@ -3,7 +3,6 @@ using AutoMapper;
 using Driver.Application.Services.Driver;
 using Driver.Common.Abstraction.UnitOfWork;
 using Driver.Common.DTO.Driver;
-using Microsoft.EntityFrameworkCore.Query;
 using Moq;
 
 namespace Driver.Application.Unit.Tests.Service
@@ -32,8 +31,7 @@ namespace Driver.Application.Unit.Tests.Service
             var mapped = Fixture.Build<DriverDto>().CreateMany().ToList();
 
             _uowMock.Setup(x => x.Repository.
-                GetAllAsync(It.IsAny<Func<IQueryable<Domain.Entities.Driver>, IIncludableQueryable<Domain.Entities.Driver, object>>>()
-                , It.IsAny<bool>())).Returns(Task.FromResult(entities));
+                GetAllAsync()).Returns(Task.FromResult(entities));
 
             _mapperMock.Setup(x => x.Map<IEnumerable<Domain.Entities.Driver>, List<DriverDto>>(It.IsAny<IEnumerable<Domain.Entities.Driver>>()))
                 .Returns(mapped);

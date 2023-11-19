@@ -20,7 +20,9 @@ namespace Driver.Application.Services.Driver
 
         public async Task<DriverDto> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _uow.Repository.GetAsync(id);
+            var mapped = _mapper.Map<DriverDto>(entity);
+            return mapped;
         }
 
         
@@ -35,19 +37,27 @@ namespace Driver.Application.Services.Driver
 
         public async Task<DriverDto> AddAsync(AddDriverDto model)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<AddDriverDto, Domain.Entities.Driver>(model);
+            var result = await _uow.Repository.AddAsync(entity);
+            var mapped = _mapper.Map<DriverDto>(result);
+            return mapped;
         }
 
       
 
         public async Task<DriverDto> UpdateAsync(UpdateDriverDto model)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<UpdateDriverDto, Domain.Entities.Driver>(model);
+            var result = await _uow.Repository.UpdateAsync(entity);
+            var mapped = _mapper.Map<DriverDto>(result);
+            return mapped;
         }
 
-        public async Task<Guid> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _uow.Repository.GetAsync(id);
+            var result = await _uow.Repository.DeleteAsync(entity);
+            return result;
         }
     }
 }

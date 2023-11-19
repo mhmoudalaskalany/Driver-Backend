@@ -15,6 +15,6 @@ namespace Driver.Application.Services.Driver
 
         Task<DriverDto> UpdateAsync(UpdateDriverDto model);
 
-        Task<Guid> DeleteAsync(Guid id);
+        Task<bool> DeleteAsync(Guid id);
     }
 }

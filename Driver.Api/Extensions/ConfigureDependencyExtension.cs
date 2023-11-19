@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
@@ -10,7 +12,6 @@ using Driver.Application.Services.Driver;
 using Driver.Common.Abstraction.UnitOfWork;
 using Driver.Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -35,7 +36,7 @@ namespace Driver.Api.Extensions
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCors();
-            services.RegisterDbContext(configuration);
+            services.RegisterDbConfiguration(configuration);
             services.AddLocalizationServices();
             services.AddServices();
             services.RegisterInfrastructure();
@@ -49,13 +50,19 @@ namespace Driver.Api.Extensions
         }
 
         /// <summary>
-        /// Add DbContext
+        /// Add Register Db Configuration
         /// </summary>
         /// <param name="services"></param>
         /// <param name="configuration"></param>
-        private static void RegisterDbContext(this IServiceCollection services, IConfiguration configuration)
+        private static void RegisterDbConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-          
+            services.AddScoped((_) => new SqlConnection(configuration.GetConnectionString(ConnectionStringName)));
+            services.AddScoped<IDbTransaction>(s =>
+            {
+                SqlConnection conn = s.GetRequiredService<SqlConnection>();
+                conn.Open();
+                return conn.BeginTransaction();
+            });
         }
 
 

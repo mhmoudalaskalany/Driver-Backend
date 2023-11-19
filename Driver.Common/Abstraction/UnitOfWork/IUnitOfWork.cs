@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Driver.Common.Abstraction.Repository;
 
 namespace Driver.Common.Abstraction.UnitOfWork
@@ -11,32 +10,9 @@ namespace Driver.Common.Abstraction.UnitOfWork
         /// </summary>
         IRepository<T> Repository { get; }
         /// <summary>
-        /// Get Repository Instance Without Constructor Injection
-        /// </summary>
-        /// <typeparam name="TB"></typeparam>
-        /// <returns></returns>
-        IRepository<TB> GetRepository<TB>() where TB : class;
-        /// <summary>
         /// Save Changes Async
         /// </summary>
         /// <returns></returns>
-        Task<int> SaveChangesAsync();
-        /// <summary>
-        /// Save Changes
-        /// </summary>
-        /// <returns></returns>
-        int SaveChanges();
-        /// <summary>
-        /// Start Transaction
-        /// </summary>
-        void StartTransaction();
-        /// <summary>
-        /// Commit Transaction
-        /// </summary>
-        void CommitTransaction();
-        /// <summary>
-        /// Rollback
-        /// </summary>
-        void Rollback();
+        void Commit();
     }
 }

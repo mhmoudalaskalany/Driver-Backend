@@ -1,11 +1,10 @@
 using System;
+using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using Driver.Common.Core;
 using Driver.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -96,7 +95,7 @@ namespace Driver.Api.MiddleWares
                     Status = HttpStatusCode.Unauthorized
                 }));
             }
-            else if (ex is DbUpdateException)
+            else if (ex is SqlException)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 if (ex.InnerException != null)
