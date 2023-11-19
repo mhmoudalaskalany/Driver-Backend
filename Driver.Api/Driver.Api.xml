@@ -47,25 +47,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Driver.Api.Controllers.V2.Base.BaseController">
-            <inheritdoc />
-        </member>
-        <member name="T:Driver.Api.Controllers.V2.DriversController">
-            <summary>
-            Drivers Controller V2
-            </summary>
-        </member>
-        <member name="M:Driver.Api.Controllers.V2.DriversController.#ctor(Driver.Application.Services.Driver.IDriverService)">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:Driver.Api.Controllers.V2.DriversController.GetAllAsync">
-            <summary>
-            Get All Candidates
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Driver.Api.Extensions.ConfigureDependencyExtension">
             <summary>
             Dependency Extensions
