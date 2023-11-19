@@ -2,7 +2,7 @@
 using AutoFixture;
 using AutoFixture.AutoMoq;
 
-namespace Candidate.Api.Unit.Tests
+namespace Driver.Api.Unit.Tests
 {
     [ExcludeFromCodeCoverage]
     public class AutoFixtureBase

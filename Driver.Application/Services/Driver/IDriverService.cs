@@ -7,16 +7,14 @@ namespace Driver.Application.Services.Driver
 {
     public interface IDriverService
     {
-        Task<DriverDto> GetAsync();
+        Task<DriverDto> GetAsync(Guid id);
 
         Task<List<DriverDto>> GetAllAsync();
 
-        Task<List<DriverDto>> GetPagedAsync();
+        Task<DriverDto> AddAsync(AddDriverDto model);
 
-        Task<DriverDto> AddAsync();
+        Task<DriverDto> UpdateAsync(UpdateDriverDto model);
 
-        Task<DriverDto> UpdateAsync();
-
-        Task<Guid> DeleteAsync();
+        Task<Guid> DeleteAsync(Guid id);
     }
 }

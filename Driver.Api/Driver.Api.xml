@@ -1,50 +1,77 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Candidate.Api</name>
+        <name>Driver.Api</name>
     </assembly>
     <members>
-        <member name="T:Candidate.Api.Controllers.Base.V1.BaseController">
+        <member name="T:Driver.Api.Controllers.V1.Base.BaseController">
             <inheritdoc />
         </member>
-        <member name="T:Candidate.Api.Controllers.V1.CandidatesController">
+        <member name="T:Driver.Api.Controllers.V1.DriversController">
             <summary>
-            Applications Controller
+            Drivers Controller
             </summary>
         </member>
-        <member name="M:Candidate.Api.Controllers.V1.CandidatesController.#ctor(Candidate.Application.Services.Candidate.ICandidateService)">
+        <member name="M:Driver.Api.Controllers.V1.DriversController.#ctor(Driver.Application.Services.Driver.IDriverService)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:Candidate.Api.Controllers.V1.CandidatesController.GetAllAsync">
+        <member name="M:Driver.Api.Controllers.V1.DriversController.GetAsync(System.Guid)">
+            <summary>
+            Get Driver by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.Controllers.V1.DriversController.GetAllAsync">
+            <summary>
+            Get All Drivers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.Controllers.V1.DriversController.AddAsync(Driver.Common.DTO.Driver.AddDriverDto)">
+            <summary>
+            Add Driver
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.Controllers.V1.DriversController.UpdateAsync(Driver.Common.DTO.Driver.UpdateDriverDto)">
+            <summary>
+            Update Driver
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.Controllers.V1.DriversController.DeleteAsync(System.Guid)">
+            <summary>
+            Delete Driver By Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Driver.Api.Controllers.V2.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="T:Driver.Api.Controllers.V2.DriversController">
+            <summary>
+            Drivers Controller V2
+            </summary>
+        </member>
+        <member name="M:Driver.Api.Controllers.V2.DriversController.#ctor(Driver.Application.Services.Driver.IDriverService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Driver.Api.Controllers.V2.DriversController.GetAllAsync">
             <summary>
             Get All Candidates
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Candidate.Api.Controllers.V2.CandidatesController">
-            <summary>
-            Applications Controller
-            </summary>
-        </member>
-        <member name="M:Candidate.Api.Controllers.V2.CandidatesController.#ctor(Candidate.Application.Services.Candidate.ICandidateService)">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:Candidate.Api.Controllers.V2.CandidatesController.GetAllAsync">
-            <summary>
-            Get All Candidates
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Candidate.Api.Extensions.ConfigureDependencyExtension">
+        <member name="T:Driver.Api.Extensions.ConfigureDependencyExtension">
             <summary>
             Dependency Extensions
             </summary>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Register Extensions
             </summary>
@@ -52,67 +79,67 @@
             <param name="configuration"></param>
             <returns></returns>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Add DbContext
             </summary>
             <param name="services"></param>
             <param name="configuration"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             register auto-mapper
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.AddLocalizationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.AddLocalizationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Register localization
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.AddServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.AddServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Register Application Services Dependencies
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterApiMonitoring(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterApiMonitoring(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Add Health Checks
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterInfrastructure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterInfrastructure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Register Infrastructure
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Register Api Versioning
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterLowerCaseUrls(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterLowerCaseUrls(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Lower Case Urls
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureDependencyExtension.RegisterSwaggerConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Extensions.ConfigureDependencyExtension.RegisterSwaggerConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Swagger Config
             </summary>
             <param name="services"></param>
         </member>
-        <member name="T:Candidate.Api.Extensions.ConfigureMiddlewareExtension">
+        <member name="T:Driver.Api.Extensions.ConfigureMiddlewareExtension">
             <summary>
             Pipeline Extensions
             </summary>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureMiddlewareExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
+        <member name="M:Driver.Api.Extensions.ConfigureMiddlewareExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
             <summary>
             General Configuration Method
             </summary>
@@ -120,38 +147,32 @@
             <param name="provider"></param>
             <returns></returns>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureMiddlewareExtension.ConfigureCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="M:Driver.Api.Extensions.ConfigureMiddlewareExtension.ConfigureCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Configure Cors
             </summary>
             <param name="app"></param>
         </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureMiddlewareExtension.CreateDatabase(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            Create Database From Migration
-            </summary>
-            <param name="app"></param>
-        </member>
-        <member name="M:Candidate.Api.Extensions.ConfigureMiddlewareExtension.SwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
+        <member name="M:Driver.Api.Extensions.ConfigureMiddlewareExtension.SwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
             <summary>
             User Swagger
             </summary>
             <param name="app"></param>
             <param name="provider"></param>
         </member>
-        <member name="T:Candidate.Api.Extensions.Swagger.Headers.LanguageHeader">
+        <member name="T:Driver.Api.Extensions.Swagger.Headers.LanguageHeader">
             <summary>
             Language Header
             </summary>
         </member>
-        <member name="M:Candidate.Api.Extensions.Swagger.Headers.LanguageHeader.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+        <member name="M:Driver.Api.Extensions.Swagger.Headers.LanguageHeader.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
             <summary>
             Apply Filter
             </summary>
             <param name="operation"></param>
             <param name="context"></param>
         </member>
-        <member name="T:Candidate.Api.Extensions.Swagger.Options.SwaggerConfigureOptions">
+        <member name="T:Driver.Api.Extensions.Swagger.Options.SwaggerConfigureOptions">
             <summary>
               Configures the Swagger generation options.
             </summary>
@@ -160,23 +181,23 @@
               cref="T:Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider"/> service has been resolved from the service container.
             </remarks>
         </member>
-        <member name="M:Candidate.Api.Extensions.Swagger.Options.SwaggerConfigureOptions.#ctor(Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
+        <member name="M:Driver.Api.Extensions.Swagger.Options.SwaggerConfigureOptions.#ctor(Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
             <summary>
-              Initializes a new instance of the <see cref="T:Candidate.Api.Extensions.Swagger.Options.SwaggerConfigureOptions"/> class.
+              Initializes a new instance of the <see cref="T:Driver.Api.Extensions.Swagger.Options.SwaggerConfigureOptions"/> class.
             </summary>
             <param name="provider">
               The <see cref="T:Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.
             </param>
         </member>
-        <member name="M:Candidate.Api.Extensions.Swagger.Options.SwaggerConfigureOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+        <member name="M:Driver.Api.Extensions.Swagger.Options.SwaggerConfigureOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Candidate.Api.MiddleWares.ExceptionMiddleware">
+        <member name="T:Driver.Api.MiddleWares.ExceptionMiddleware">
             <summary>
             Global Exception Middleware
             </summary>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Driver.Api.MiddleWares.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Constructor
             </summary>
@@ -185,59 +206,59 @@
             <param name="configuration"></param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             Invoce
             </summary>
             <param name="httpContext"></param>
             <returns></returns>
         </member>
-        <member name="T:Candidate.Api.MiddleWares.LanguageMiddleware">
+        <member name="T:Driver.Api.MiddleWares.LanguageMiddleware">
             <summary>
             Language Middleware
             </summary>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.LanguageMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+        <member name="M:Driver.Api.MiddleWares.LanguageMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
             <summary>
             Constructor
             </summary>
             <param name="next"></param>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.LanguageMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Driver.Api.MiddleWares.LanguageMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             Invoke
             </summary>
             <param name="httpContext"></param>
             <returns></returns>
         </member>
-        <member name="T:Candidate.Api.MiddleWares.MiddlewareExtensions">
+        <member name="T:Driver.Api.MiddleWares.MiddlewareExtensions">
             <summary>
             Extend Middleware
             </summary>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.MiddlewareExtensions.ConfigureCustomMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="M:Driver.Api.MiddleWares.MiddlewareExtensions.ConfigureCustomMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Configure
             </summary>
             <param name="app"></param>
         </member>
-        <member name="T:Candidate.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware">
+        <member name="T:Driver.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware">
             <summary>
             Swagger Middleware
             </summary>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Driver.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Driver.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             Invoke
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.IsAuthorized(System.String,System.String)">
+        <member name="M:Driver.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.IsAuthorized(System.String,System.String)">
              <summary>
             
              </summary>
@@ -245,54 +266,54 @@
              <param name="password"></param>
              <returns></returns>
         </member>
-        <member name="M:Candidate.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.IsLocalRequest(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Driver.Api.MiddleWares.Swagger.SwaggerBasicAuthMiddleware.IsLocalRequest(Microsoft.AspNetCore.Http.HttpContext)">
              <summary>
             
              </summary>
              <param name="context"></param>
              <returns></returns>
         </member>
-        <member name="T:Candidate.Api.Program">
+        <member name="T:Driver.Api.Program">
             <summary>
             Start Point
             </summary>
         </member>
-        <member name="M:Candidate.Api.Program.Main(System.String[])">
+        <member name="M:Driver.Api.Program.Main(System.String[])">
             <summary>
             Kick Off
             </summary>
             <param name="args"></param>
         </member>
-        <member name="M:Candidate.Api.Program.CreateHostBuilder(System.String[])">
+        <member name="M:Driver.Api.Program.CreateHostBuilder(System.String[])">
             <summary>
             Web Host Builder
             </summary>
             <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="T:Candidate.Api.Startup">
+        <member name="T:Driver.Api.Startup">
             <summary>
             Start Up Class
             </summary>
         </member>
-        <member name="M:Candidate.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Driver.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Constructor
             </summary>
             <param name="configuration"></param>
         </member>
-        <member name="P:Candidate.Api.Startup.Configuration">
+        <member name="P:Driver.Api.Startup.Configuration">
             <summary>
             Public Configuration Property
             </summary>
         </member>
-        <member name="M:Candidate.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Driver.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Configure Dependencies
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Candidate.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
+        <member name="M:Driver.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
             <summary>
             Configure Pipeline
             </summary>

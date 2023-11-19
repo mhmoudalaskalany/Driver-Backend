@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Asp.Versioning;
-using Candidate.Api.Controllers.Base.V1;
+using Driver.Api.Controllers.V2.Base;
 using Driver.Application.Services.Driver;
 using Driver.Common.Core;
 using Driver.Common.DTO.Driver;

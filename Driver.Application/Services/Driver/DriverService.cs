@@ -18,7 +18,7 @@ namespace Driver.Application.Services.Driver
         }
 
 
-        public async Task<DriverDto> GetAsync()
+        public async Task<DriverDto> GetAsync(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -31,24 +31,21 @@ namespace Driver.Application.Services.Driver
             return data;
         }
 
-        public async Task<List<DriverDto>> GetPagedAsync()
-        {
-            throw new NotImplementedException();
-        }
+ 
 
-        public async Task<DriverDto> AddAsync()
+        public async Task<DriverDto> AddAsync(AddDriverDto model)
         {
             throw new NotImplementedException();
         }
 
       
 
-        public async Task<DriverDto> UpdateAsync()
+        public async Task<DriverDto> UpdateAsync(UpdateDriverDto model)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Guid> DeleteAsync()
+        public async Task<Guid> DeleteAsync(Guid id)
         {
             throw new NotImplementedException();
         }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Candidate.Api.Controllers.Base.V1
+namespace Driver.Api.Controllers.V2.Base
 {
     /// <inheritdoc />
     [ApiController]
