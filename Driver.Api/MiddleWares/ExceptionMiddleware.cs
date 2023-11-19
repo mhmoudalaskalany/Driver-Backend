@@ -95,45 +95,36 @@ namespace Driver.Api.MiddleWares
                     Status = HttpStatusCode.Unauthorized
                 }));
             }
-            else if (ex is SqliteException)
+            else if (ex is SqliteException dbException)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                if (ex.InnerException != null)
+
+                switch (dbException.SqliteErrorCode)
                 {
-                    var dbException = (SqliteException)ex.InnerException;
-
-                    switch (dbException.SqliteErrorCode)
-                    {
-                        case 547:
+                    case 19:
+                        {
+                            var error = new ErrorResponse
                             {
-                                var table = dbException.Message.Split("table");
-                                var column = table[1].Split("column");
-                                var error = new ErrorResponse
-                                {
-                                    Status = HttpStatusCode.BadRequest,
-                                    Message = $"Wrong Foreign Key (Id) For Entity {column[0]}"
-                                };
+                                Status = HttpStatusCode.BadRequest,
+                                Message = "Duplicate Primary Key (Id) For Entity"
+                            };
 
-                                await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
-                                break;
-                            }
-                        default:
+                            await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
+                            break;
+                        }
+                    default:
+                        {
+
+                            var error = new ErrorResponse
                             {
+                                Status = HttpStatusCode.BadRequest,
+                                Message = dbException.Message
+                            };
+                            await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
+                            break;
+                        }
+                }
 
-                                var error = new ErrorResponse
-                                {
-                                    Status = HttpStatusCode.BadRequest,
-                                    Message = dbException.Message
-                                };
-                                await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
-                                break;
-                            }
-                    }
-                }
-                else
-                {
-                    await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse { Message = ex.Message }.ToString()));
-                }
 
 
             }

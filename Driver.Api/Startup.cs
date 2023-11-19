@@ -47,13 +47,13 @@ namespace Driver.Api
         /// <param name="provider"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env , IApiVersionDescriptionProvider provider)
         {
-            app.ConfigureCustomMiddleware();
+          
             app.Configure(provider);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.ConfigureCustomMiddleware();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
