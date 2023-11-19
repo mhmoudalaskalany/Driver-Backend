@@ -208,7 +208,7 @@
         </member>
         <member name="M:Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
-            Invoce
+            Invoke
             </summary>
             <param name="httpContext"></param>
             <returns></returns>

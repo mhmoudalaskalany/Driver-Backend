@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
@@ -9,9 +8,10 @@ using Driver.Api.Extensions.Swagger.Headers;
 using Driver.Api.Extensions.Swagger.Options;
 using Driver.Application.Mapping;
 using Driver.Application.Services.Driver;
-using Driver.Common.Abstraction.UnitOfWork;
-using Driver.Infrastructure.UnitOfWork;
+using Driver.Common.Abstraction.Repository;
+using Driver.Infrastructure.Repository;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -56,10 +56,12 @@ namespace Driver.Api.Extensions
         /// <param name="configuration"></param>
         private static void RegisterDbConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped((_) => new SqlConnection(configuration.GetConnectionString(ConnectionStringName)));
+            var connectionString = configuration.GetConnectionString(ConnectionStringName);
+            services.AddScoped<IDbConnection>((_) => new SqliteConnection(connectionString));
             services.AddScoped<IDbTransaction>(s =>
             {
-                SqlConnection conn = s.GetRequiredService<SqlConnection>();
+                var conn = s.GetRequiredService<IDbConnection>();
+                SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());
                 conn.Open();
                 return conn.BeginTransaction();
             });
@@ -113,7 +115,7 @@ namespace Driver.Api.Extensions
         /// <param name="services"></param>
         private static void RegisterInfrastructure(this IServiceCollection services)
         {
-            services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         /// <summary>

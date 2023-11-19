@@ -1,10 +1,10 @@
 using System;
-using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using Driver.Common.Core;
 using Driver.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -37,7 +37,7 @@ namespace Driver.Api.MiddleWares
         }
 
         /// <summary>
-        /// Invoce
+        /// Invoke
         /// </summary>
         /// <param name="httpContext"></param>
         /// <returns></returns>
@@ -95,14 +95,14 @@ namespace Driver.Api.MiddleWares
                     Status = HttpStatusCode.Unauthorized
                 }));
             }
-            else if (ex is SqlException)
+            else if (ex is SqliteException)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 if (ex.InnerException != null)
                 {
-                    var dbException = (SqlException)ex.InnerException;
+                    var dbException = (SqliteException)ex.InnerException;
 
-                    switch (dbException.Number)
+                    switch (dbException.SqliteErrorCode)
                     {
                         case 547:
                             {

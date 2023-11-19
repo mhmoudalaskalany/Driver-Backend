@@ -1,7 +1,7 @@
 ﻿using AutoFixture;
 using AutoMapper;
 using Driver.Application.Services.Driver;
-using Driver.Common.Abstraction.UnitOfWork;
+using Driver.Common.Abstraction.Repository;
 using Driver.Common.DTO.Driver;
 using Moq;
 
@@ -9,18 +9,18 @@ namespace Driver.Application.Unit.Tests.Service
 {
     public class DriverServiceTests : AutoFixtureBase
     {
-        private readonly Mock<IUnitOfWork<Domain.Entities.Driver>> _uowMock;
+        private readonly Mock<IRepository<Domain.Entities.Driver>> _repositoryMock;
         private readonly DriverService _driverServiceMock;
         private readonly Mock<IMapper> _mapperMock;
         public DriverServiceTests()
         {
-            _uowMock = new Mock<IUnitOfWork<Domain.Entities.Driver>>();
-            Fixture.Register(() => _uowMock.Object);
+            _repositoryMock = new Mock<IRepository<Domain.Entities.Driver>>();
+            Fixture.Register(() => _repositoryMock.Object);
 
             _mapperMock = new Mock<IMapper>();
             Fixture.Register(() => _mapperMock.Object);
 
-            _driverServiceMock = new DriverService(_uowMock.Object, _mapperMock.Object);
+            _driverServiceMock = new DriverService(_repositoryMock.Object, _mapperMock.Object);
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Driver.Application.Unit.Tests.Service
             var entities = Fixture.Build<Domain.Entities.Driver>().CreateMany();
             var mapped = Fixture.Build<DriverDto>().CreateMany().ToList();
 
-            _uowMock.Setup(x => x.Repository.
+            _repositoryMock.Setup(x => x.
                 GetAllAsync()).Returns(Task.FromResult(entities));
 
             _mapperMock.Setup(x => x.Map<IEnumerable<Domain.Entities.Driver>, List<DriverDto>>(It.IsAny<IEnumerable<Domain.Entities.Driver>>()))

@@ -22,8 +22,6 @@ namespace Driver.Api.Extensions
             app.ConfigureCors();
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
             app.SwaggerConfig(provider);
             app.UseHealthChecks("/probe");
             return app;
@@ -39,8 +37,6 @@ namespace Driver.Api.Extensions
                 .AllowAnyMethod()
                 .AllowAnyHeader());
         }
-
-
 
 
         /// <summary>

@@ -11,11 +11,10 @@ namespace Driver.Infrastructure.Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly IDbConnection _dbConnection;
-        private readonly IDbTransaction _dbTransaction;
-        public Repository(IDbConnection dbConnection, IDbTransaction dbTransaction)
+        public Repository(IDbConnection dbConnection)
         {
             _dbConnection = dbConnection;
-            _dbTransaction = dbTransaction;
+            CreateDriversTable();
         }
 
         public async Task<T> GetAsync(Guid id)
@@ -34,7 +33,7 @@ namespace Driver.Infrastructure.Repository
         public async Task<T> AddAsync(T entity)
         {
             var query = BuildInsertQuery();
-            await _dbConnection.ExecuteAsync(query, entity, transaction: _dbTransaction);
+            await _dbConnection.ExecuteAsync(query, entity);
             return entity;
         }
 
@@ -42,7 +41,7 @@ namespace Driver.Infrastructure.Repository
         public async Task<T> UpdateAsync(T entity)
         {
             var query = BuildUpdateQuery();
-            await _dbConnection.ExecuteAsync(query, entity, transaction: _dbTransaction);
+            await _dbConnection.ExecuteAsync(query, entity);
             return entity;
         }
 
@@ -50,7 +49,7 @@ namespace Driver.Infrastructure.Repository
         public async Task<bool> DeleteAsync(T entity)
         {
             var query = BuildDeleteQuery();
-            var rows = await _dbConnection.ExecuteAsync(query, transaction: _dbTransaction);
+            var rows = await _dbConnection.ExecuteAsync(query);
             return rows > 0;
         }
 
@@ -90,6 +89,18 @@ namespace Driver.Infrastructure.Repository
         private IEnumerable<System.Reflection.PropertyInfo> GetProperties()
         {
             return typeof(T).GetProperties();
+        }
+
+        private void CreateDriversTable()
+        {
+            _dbConnection.Execute(@"
+            CREATE TABLE IF NOT EXISTS Drivers (
+                Id GUID PRIMARY KEY,
+                FirstName NVARCHAR(250) NOT NULL,
+                LastName NVARCHAR(250) NOT NULL,
+                Email NVARCHAR(100) NOT NULL,
+                PhoneNumber NVARCHAR(20) NOT NULL
+            )");
         }
 
     }
