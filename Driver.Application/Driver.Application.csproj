@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\Business\**" />
+    <EmbeddedResource Remove="Services\Business\**" />
+    <None Remove="Services\Business\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Driver.Common\Driver.Common.csproj" />
+  </ItemGroup>
+
+</Project>
