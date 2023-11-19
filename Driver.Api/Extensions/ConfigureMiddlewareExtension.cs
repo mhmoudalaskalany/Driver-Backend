@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Asp.Versioning.ApiExplorer;
+using Driver.Common.Abstraction.Repository;
+using Driver.Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Driver.Api.Extensions
@@ -24,6 +27,7 @@ namespace Driver.Api.Extensions
             app.UseRouting();
             app.SwaggerConfig(provider);
             app.UseHealthChecks("/probe");
+            app.MigrateDatabase();
             return app;
         }
         /// <summary>
@@ -36,6 +40,19 @@ namespace Driver.Api.Extensions
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
+        }
+
+
+        /// <summary>
+        /// Migrate Database
+        /// </summary>
+        /// <param name="app"></param>
+        public static void MigrateDatabase(this IApplicationBuilder app)
+        {
+            using var scope = app.ApplicationServices.CreateScope();
+            var driverRepository = scope.ServiceProvider.GetRequiredService<IRepository<Domain.Entities.Driver>>();
+            // Ensure the Drivers table is created
+            driverRepository.CreateDriversTable();
         }
 
 

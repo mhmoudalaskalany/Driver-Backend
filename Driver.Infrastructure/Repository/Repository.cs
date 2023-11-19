@@ -14,7 +14,6 @@ namespace Driver.Infrastructure.Repository
         public Repository(IDbConnection dbConnection)
         {
             _dbConnection = dbConnection;
-            CreateDriversTable();
         }
 
         public async Task<T> GetAsync(Guid id)
@@ -91,7 +90,7 @@ namespace Driver.Infrastructure.Repository
             return typeof(T).GetProperties();
         }
 
-        private void CreateDriversTable()
+        public void CreateDriversTable()
         {
             _dbConnection.Execute(@"
             CREATE TABLE IF NOT EXISTS Drivers (

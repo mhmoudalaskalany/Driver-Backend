@@ -153,6 +153,12 @@
             </summary>
             <param name="app"></param>
         </member>
+        <member name="M:Driver.Api.Extensions.ConfigureMiddlewareExtension.MigrateDatabase(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Migrate Database
+            </summary>
+            <param name="app"></param>
+        </member>
         <member name="M:Driver.Api.Extensions.ConfigureMiddlewareExtension.SwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
             <summary>
             User Swagger

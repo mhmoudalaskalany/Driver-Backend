@@ -36,5 +36,11 @@ namespace Driver.Common.Abstraction.Repository
         /// </summary>
         Task<bool> DeleteAsync(T entity);
 
+
+        /// <summary>
+        /// Create Drivers Table
+        /// </summary>
+        void CreateDriversTable();
+
     }
 }
