@@ -90,9 +90,9 @@ namespace Driver.Infrastructure.Repository
             return typeof(T).GetProperties();
         }
 
-        public void CreateDriversTable()
+        public int CreateDriversTable()
         {
-            _dbConnection.Execute(@"
+           var result =  _dbConnection.Execute(@"
             CREATE TABLE IF NOT EXISTS Drivers (
                 Id GUID PRIMARY KEY,
                 FirstName NVARCHAR(250) NOT NULL,
@@ -100,6 +100,8 @@ namespace Driver.Infrastructure.Repository
                 Email NVARCHAR(100) NOT NULL,
                 PhoneNumber NVARCHAR(20) NOT NULL
             )");
+
+           return result;
         }
 
     }

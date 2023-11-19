@@ -40,7 +40,7 @@ namespace Driver.Common.Abstraction.Repository
         /// <summary>
         /// Create Drivers Table
         /// </summary>
-        void CreateDriversTable();
+        int CreateDriversTable();
 
     }
 }
