@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Caching\**" />
+    <EmbeddedResource Remove="Caching\**" />
+    <None Remove="Caching\**" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Asp.Versioning.Http" Version="7.1.0" />
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="7.1.0" />
@@ -19,9 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Driver.Domain\Driver.Domain.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Caching\" />
   </ItemGroup>
 
 
