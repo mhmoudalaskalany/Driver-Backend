@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Driver.Api.MiddleWares.Swagger
     /// <summary>
     /// Swagger Middleware
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class SwaggerBasicAuthMiddleware
     {
         private readonly IConfiguration _configuration;

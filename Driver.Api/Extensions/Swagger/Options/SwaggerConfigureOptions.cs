@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Asp.Versioning.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,7 @@ namespace Driver.Api.Extensions.Swagger.Options;
 ///   This allows API versioning to define a Swagger document per API version after the <see
 ///   cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.
 /// </remarks>
+[ExcludeFromCodeCoverage]
 public class SwaggerConfigureOptions : IConfigureOptions<SwaggerGenOptions>
 {
     private readonly IApiVersionDescriptionProvider _provider;
