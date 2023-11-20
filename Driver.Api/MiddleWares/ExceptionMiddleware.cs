@@ -79,53 +79,18 @@ namespace Driver.Api.MiddleWares
 
             _logger.LogError($"{detailedExceptionMessage}");
 
-            if (ex is BaseException)
+            if (ex is BaseException baseException)
             {
-                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-
-                await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse() { Message = ex.Message }));
+                await HandleBaseExceptionAsync(context, baseException);
             }
             else if (ex is UnauthorizedAccessException)
             {
-                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-
-                await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse
-                {
-                    Message = "Unauthorized",
-                    Status = HttpStatusCode.Unauthorized
-                }));
+                await HandleUnAuthorizedExceptionAsync(context);
             }
             else if (ex is SqliteException dbException)
             {
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
-                switch (dbException.SqliteErrorCode)
-                {
-                    case 19:
-                        {
-                            var error = new ErrorResponse
-                            {
-                                Status = HttpStatusCode.BadRequest,
-                                Message = "Duplicate Primary Key (Id) For Entity"
-                            };
-
-                            await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
-                            break;
-                        }
-                    default:
-                        {
-
-                            var error = new ErrorResponse
-                            {
-                                Status = HttpStatusCode.BadRequest,
-                                Message = dbException.Message
-                            };
-                            await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
-                            break;
-                        }
-                }
-
-
+                await HandleSqLiteExceptionAsync(context, dbException);
 
             }
             else
@@ -138,6 +103,74 @@ namespace Driver.Api.MiddleWares
                     Message = _configuration["Enable_Stack_Trace"] == "TRUE" ? exceptionJson : ex.Message
 
                 }));
+            }
+        }
+
+
+        /// <summary>
+        /// Handle Base Exception
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="ex"></param>
+        /// <returns></returns>
+        private async Task HandleBaseExceptionAsync(HttpContext context, BaseException ex)
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse() { Message = ex.Message }));
+        }
+
+
+        /// <summary>
+        /// Handle Unauthorized Exception
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        private async Task HandleUnAuthorizedExceptionAsync(HttpContext context)
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse
+            {
+                Message = "Unauthorized",
+                Status = HttpStatusCode.Unauthorized
+            }));
+        }
+
+        /// <summary>
+        /// Handle Sql Lite Exception
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="dbException"></param>
+        /// <returns></returns>
+        private async Task HandleSqLiteExceptionAsync(HttpContext context, SqliteException dbException)
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+
+            switch (dbException.SqliteErrorCode)
+            {
+                case 19:
+                    {
+                        var error = new ErrorResponse
+                        {
+                            Status = HttpStatusCode.BadRequest,
+                            Message = "Duplicate Primary Key (Id) For Entity"
+                        };
+
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
+                        break;
+                    }
+                default:
+                    {
+
+                        var error = new ErrorResponse
+                        {
+                            Status = HttpStatusCode.BadRequest,
+                            Message = dbException.Message
+                        };
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
+                        break;
+                    }
             }
         }
     }
