@@ -56,7 +56,7 @@ namespace Driver.Application.Unit.Tests.Service
             var result = await driverService.GetAsync(entity.Id);
 
             // assert
-            Assert.Equal(result.Id , entity.Id);
+            Assert.Equal(result.Id, entity.Id);
         }
 
         [Fact]
@@ -78,6 +78,141 @@ namespace Driver.Application.Unit.Tests.Service
 
             // assert
             Assert.True(result.Any());
+        }
+
+
+        [Fact]
+        public async Task AddAsync_CreateItem_AndReturn_Dto()
+        {
+            // Arrange
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var service = new DriverService(mockRepository.Object, mockMapper.Object);
+
+            var addDriverDto = CreateAddDriverDto();
+            var addedEntity = CreateDriver();
+            var addedDto = CreateDriverDto(addedEntity.Id);
+
+            mockMapper.Setup(x => x.Map<AddDriverDto ,  Domain.Entities.Driver>(It.IsAny<AddDriverDto>()))
+                .Returns(addedEntity);
+            
+            mockRepository.Setup(repo => repo.AddAsync(addedEntity)).ReturnsAsync(addedEntity);
+
+            mockMapper.Setup(x => x.Map<Domain.Entities.Driver, DriverDto>(It.IsAny<Domain.Entities.Driver>()))
+                .Returns(addedDto);
+
+            // Act
+            var result = await service.AddAsync(addDriverDto);
+
+            // Assert
+            Assert.Equal(addedDto.Id, result.Id);
+        }
+
+        [Fact]
+        public async Task UpdateAsync_ShouldReturnUpdatedDriverDto()
+        {
+            // Arrange
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var service = new DriverService(mockRepository.Object, mockMapper.Object);
+
+            var updatedEntity = CreateDriver();
+            var updateDriverDto = CreateUpdateDriverDto(updatedEntity.Id);
+            var updatedDto = CreateDriverDto(updateDriverDto.Id);
+
+
+            mockMapper.Setup(x => x.Map<UpdateDriverDto, Domain.Entities.Driver>(It.IsAny<UpdateDriverDto>()))
+                .Returns(updatedEntity);
+
+            mockRepository.Setup(repo => repo.UpdateAsync(updatedEntity)).ReturnsAsync(updatedEntity);
+
+            mockMapper.Setup(x => x.Map<Domain.Entities.Driver, DriverDto>(It.IsAny<Domain.Entities.Driver>()))
+                .Returns(updatedDto);
+
+            // Act
+            var result = await service.UpdateAsync(updateDriverDto);
+
+            // Assert
+            Assert.Equal(updatedDto.Id, result.Id);
+        }
+
+        [Fact]
+        public async Task DeleteAsync_ShouldReturnTrue()
+        {
+            // Arrange
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var service = new DriverService(mockRepository.Object, mockMapper.Object);
+
+            var driverId = Guid.NewGuid();
+            var entityToDelete = new Domain.Entities.Driver { Id = driverId, FirstName = "John", LastName = "Doe" };
+
+            mockRepository.Setup(repo => repo.GetAsync(driverId)).ReturnsAsync(entityToDelete);
+            mockRepository.Setup(repo => repo.DeleteAsync(entityToDelete)).ReturnsAsync(true);
+
+            // Act
+            var result = await service.DeleteAsync(driverId);
+
+            // Assert
+            Assert.True(result);
+        }
+
+
+        private AddDriverDto CreateAddDriverDto()
+        {
+            var driver = new AddDriverDto()
+            {
+                Email = "mahmoud@gmail.com",
+                FirstName = "Mahmoud",
+                LastName = "Ragab",
+                PhoneNumber = "+9999999"
+            };
+
+            return driver;
+        }
+
+
+        private UpdateDriverDto CreateUpdateDriverDto(Guid id)
+        {
+            var driver = new UpdateDriverDto()
+            {
+                Id = id,
+                Email = "mahmoud@gmail.com",
+                FirstName = "Mahmoud",
+                LastName = "Ragab",
+                PhoneNumber = "+9999999"
+            };
+
+            return driver;
+        }
+
+        private DriverDto CreateDriverDto(Guid id)
+        {
+            var driver = new DriverDto()
+            {
+                Id = id,
+                Email = "mahmoud@gmail.com",
+                FirstName = "Mahmoud",
+                LastName = "Ragab",
+                PhoneNumber = "+9999999"
+            };
+
+            return driver;
+        }
+
+
+        private Domain.Entities.Driver CreateDriver()
+        {
+            var driver = new Domain.Entities.Driver()
+            {
+                Id = Guid.NewGuid(),
+                Email = "mahmoud@gmail.com",
+                FirstName = "Mahmoud",
+                LastName = "Ragab",
+                PhoneNumber = "+9999999"
+            };
+
+            return driver;
         }
     }
 }

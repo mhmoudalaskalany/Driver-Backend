@@ -25,7 +25,7 @@ namespace Driver.Application.Services.Driver
             return mapped;
         }
 
-        
+
         public async Task<List<DriverDto>> GetAllAsync()
         {
             var entities = await _repository.GetAllAsync();
@@ -33,23 +33,23 @@ namespace Driver.Application.Services.Driver
             return data;
         }
 
- 
+
 
         public async Task<DriverDto> AddAsync(AddDriverDto model)
         {
             var entity = _mapper.Map<AddDriverDto, Domain.Entities.Driver>(model);
             var result = await _repository.AddAsync(entity);
-            var mapped = _mapper.Map<DriverDto>(result);
+            var mapped = _mapper.Map<Domain.Entities.Driver, DriverDto>(result);
             return mapped;
         }
 
-      
+
 
         public async Task<DriverDto> UpdateAsync(UpdateDriverDto model)
         {
             var entity = _mapper.Map<UpdateDriverDto, Domain.Entities.Driver>(model);
             var result = await _repository.UpdateAsync(entity);
-            var mapped = _mapper.Map<DriverDto>(result);
+            var mapped = _mapper.Map<Domain.Entities.Driver, DriverDto>(result);
             return mapped;
         }
 
