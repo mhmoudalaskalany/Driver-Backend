@@ -1,6 +1,9 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 
 namespace Driver.Api
 {
@@ -10,6 +13,8 @@ namespace Driver.Api
     [ExcludeFromCodeCoverage]
     public class Program
     {
+
+
        
       
         /// <summary>
@@ -18,6 +23,12 @@ namespace Driver.Api
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.EventLog("Application")
+                .WriteTo.Console()
+                .WriteTo.File(Path.Combine("./Logs", $"{DateTime.Today:dd-MMM-yyyy}.txt"))
+                .CreateLogger();
+
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -32,6 +43,6 @@ namespace Driver.Api
                 {
                     webBuilder
                         .UseStartup<Startup>();
-                });
+                }).UseSerilog();
     }
 }

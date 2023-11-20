@@ -200,6 +200,29 @@
             <param name="httpContext"></param>
             <returns></returns>
         </member>
+        <member name="M:Driver.Api.MiddleWares.ExceptionMiddleware.HandleBaseExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,Driver.Common.Exceptions.BaseException)">
+            <summary>
+            Handle Base Exception
+            </summary>
+            <param name="context"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.MiddleWares.ExceptionMiddleware.HandleUnAuthorizedExceptionAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Handle Unauthorized Exception
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.MiddleWares.ExceptionMiddleware.HandleSqLiteExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,Microsoft.Data.Sqlite.SqliteException)">
+            <summary>
+            Handle Sql Lite Exception
+            </summary>
+            <param name="context"></param>
+            <param name="dbException"></param>
+            <returns></returns>
+        </member>
         <member name="T:Driver.Api.MiddleWares.LanguageMiddleware">
             <summary>
             Language Middleware
