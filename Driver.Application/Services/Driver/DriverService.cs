@@ -11,10 +11,12 @@ namespace Driver.Application.Services.Driver
     {
         private readonly IMapper _mapper;
         private readonly IRepository<Domain.Entities.Driver> _repository;
-        public DriverService(IRepository<Domain.Entities.Driver> uow, IMapper mapper)
+        private readonly IRandomDriverService _randomDriverService;
+        public DriverService(IRepository<Domain.Entities.Driver> uow, IMapper mapper, IRandomDriverService randomDriverService)
         {
             _repository = uow ?? throw new ArgumentNullException(nameof(uow));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _randomDriverService = randomDriverService ?? throw new ArgumentNullException(nameof(randomDriverService));
         }
 
 
@@ -41,6 +43,13 @@ namespace Driver.Application.Services.Driver
             var result = await _repository.AddAsync(entity);
             var mapped = _mapper.Map<Domain.Entities.Driver, DriverDto>(result);
             return mapped;
+        }
+
+        public async Task<int> AddRandomDriversAsync()
+        {
+            var randomDrivers =_randomDriverService.GenerateRandomDrivers(10);
+            var entities = _mapper.Map<List<AddDriverDto>, List<Domain.Entities.Driver>>(randomDrivers);
+
         }
 
 

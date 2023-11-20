@@ -70,6 +70,21 @@ namespace Driver.Api.Controllers.V1
             return Ok(result);
         }
 
+
+        /// <summary>
+        /// Add Driver
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("addRandomDrivers")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActionResult<int>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
+        public async Task<IActionResult> AddRandomDriversAsync()
+        {
+            var result = await _service.AddRandomDriversAsync();
+            return Ok(result);
+        }
+
         /// <summary>
         /// Update Driver
         /// </summary>
@@ -89,7 +104,7 @@ namespace Driver.Api.Controllers.V1
         /// </summary>
         /// <returns></returns>
         [HttpDelete("delete/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActionResult<Guid>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActionResult<bool>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
         public async Task<IActionResult> DeleteAsync(Guid id)

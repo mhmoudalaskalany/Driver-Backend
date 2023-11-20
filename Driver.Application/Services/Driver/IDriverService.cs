@@ -13,6 +13,8 @@ namespace Driver.Application.Services.Driver
 
         Task<DriverDto> AddAsync(AddDriverDto model);
 
+        Task<int> AddRandomDriversAsync();
+
         Task<DriverDto> UpdateAsync(UpdateDriverDto model);
 
         Task<bool> DeleteAsync(Guid id);

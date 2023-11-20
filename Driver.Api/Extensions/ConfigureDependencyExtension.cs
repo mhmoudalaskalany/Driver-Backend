@@ -94,6 +94,7 @@ namespace Driver.Api.Extensions
         public static void AddServices(this IServiceCollection services)
         {
             services.AddTransient<IDriverService, DriverService>();
+            services.AddTransient<IRandomDriverService, RandomDriverService>();
         }
 
 
