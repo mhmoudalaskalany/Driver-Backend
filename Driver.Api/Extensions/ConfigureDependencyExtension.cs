@@ -58,7 +58,7 @@ namespace Driver.Api.Extensions
         {
             var connectionString = configuration.GetConnectionString(ConnectionStringName);
             services.AddScoped<IDbConnection>((_) => new SqliteConnection(connectionString));
-            services.AddScoped<IDbTransaction>(s =>
+            services.AddScoped(s =>
             {
                 var conn = s.GetRequiredService<IDbConnection>();
                 SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());

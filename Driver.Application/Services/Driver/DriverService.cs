@@ -13,8 +13,8 @@ namespace Driver.Application.Services.Driver
         private readonly IRepository<Domain.Entities.Driver> _repository;
         public DriverService(IRepository<Domain.Entities.Driver> uow, IMapper mapper)
         {
-            _repository = uow;
-            _mapper = mapper;
+            _repository = uow ?? throw new ArgumentNullException(nameof(uow));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
 
