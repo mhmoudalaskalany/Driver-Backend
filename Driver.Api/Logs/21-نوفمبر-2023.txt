@@ -168,3 +168,395 @@
 2023-11-21 11:35:43.545 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 197.6762ms
 2023-11-21 11:35:43.547 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
 2023-11-21 11:35:43.548 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 200 null application/json; charset=utf-8 247.6916ms
+2023-11-21 12:11:19.759 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:11:19.789 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:11:19.795 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:11:19.797 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:11:19.802 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:11:22.855 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:11:23.132 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 280.2711ms
+2023-11-21 12:11:23.158 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:11:23.158 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:11:23.167 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 8.8926ms
+2023-11-21 12:11:23.203 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.5258ms
+2023-11-21 12:11:23.260 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:11:23.440 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 180.0264ms
+2023-11-21 12:11:38.950 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FA - null null
+2023-11-21 12:11:38.971 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:11:38.989 +04:00 [INF] Route matched with {action = "GetNameAlphabetized", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNameAlphabetizedAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:11:39.094 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:11:47.414 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) in 8421.4381ms
+2023-11-21 12:11:47.416 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:11:47.466 +04:00 [ERR] ----------Exception---------{
+  "Message": "Entity with Id: 03b944a0-9da2-4b5c-97bc-585a1e1ee4fa is not found ",
+  "StackTrace": "   at Driver.Application.Services.Driver.DriverService.GetNameAlphabetizedAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 40\r\n   at Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 54\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 12:11:47.472 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FA - 404 null application/json 8522.7685ms
+2023-11-21 12:12:54.565 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:12:54.580 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:12:54.582 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:12:54.583 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:12:54.585 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:12:59.694 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:12:59.946 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 256.3144ms
+2023-11-21 12:12:59.978 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:12:59.978 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:13:00.000 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 22.254ms
+2023-11-21 12:13:00.028 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.5973ms
+2023-11-21 12:13:00.086 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:13:00.247 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 160.6801ms
+2023-11-21 12:13:04.005 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FA - null null
+2023-11-21 12:13:04.028 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:13:04.045 +04:00 [INF] Route matched with {action = "GetNameAlphabetized", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNameAlphabetizedAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:13:04.151 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:13:06.635 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) in 2585.4ms
+2023-11-21 12:13:06.637 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:13:12.674 +04:00 [ERR] ----------Exception---------{
+  "Message": "Entity with Id: 03b944a0-9da2-4b5c-97bc-585a1e1ee4fa is not found ",
+  "StackTrace": "   at Driver.Application.Services.Driver.DriverService.GetNameAlphabetizedAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 40\r\n   at Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 54\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 12:14:01.190 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:14:01.207 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:14:01.211 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:14:01.212 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:14:01.212 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:14:10.078 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:14:10.335 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 260.665ms
+2023-11-21 12:14:10.357 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:14:10.358 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:14:10.367 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 10.4441ms
+2023-11-21 12:14:10.416 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.7504ms
+2023-11-21 12:14:10.469 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:14:10.640 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 171.4774ms
+2023-11-21 12:14:41.255 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - null null
+2023-11-21 12:14:41.280 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:14:41.298 +04:00 [INF] Route matched with {action = "GetNameAlphabetized", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNameAlphabetizedAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:14:41.395 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:14:45.330 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) in 4029.1345ms
+2023-11-21 12:14:45.332 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:15:08.081 +04:00 [ERR] ----------Exception---------{
+  "Message": "Error parsing column 0 (Id=03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - String)",
+  "StackTrace": "   at Dapper.SqlMapper.ThrowDataException(Exception ex, Int32 index, IDataReader reader, Object value) in /_/Dapper/SqlMapper.cs:line 3906\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)\r\n   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command)\r\n   at Driver.Infrastructure.Repository.Repository`1.GetAsync(Guid id)\r\n   at Driver.Application.Services.Driver.DriverService.GetNameAlphabetizedAsync(Guid id)\r\n   at Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync(Guid id)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext)",
+  "InnerException": {
+    "ClassName": "System.InvalidCastException",
+    "Message": "Invalid cast from 'System.String' to 'System.Guid'.",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Convert.DefaultToType(IConvertible value, Type targetType, IFormatProvider provider)\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": null,
+    "HResult": -2147467262,
+    "Source": "System.Private.CoreLib",
+    "WatsonBuckets": null
+  }
+}---------
+2023-11-21 12:15:08.089 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - 500 null application/json 26835.0611ms
+2023-11-21 12:15:12.808 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - null null
+2023-11-21 12:15:12.812 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:15:12.813 +04:00 [INF] Route matched with {action = "GetNameAlphabetized", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNameAlphabetizedAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:15:12.829 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:15:15.699 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) in 2884.4644ms
+2023-11-21 12:15:15.701 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:15:23.025 +04:00 [ERR] ----------Exception---------{
+  "Message": "Error parsing column 0 (Id=03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - String)",
+  "StackTrace": "   at Dapper.SqlMapper.ThrowDataException(Exception ex, Int32 index, IDataReader reader, Object value) in /_/Dapper/SqlMapper.cs:line 3906\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)\r\n   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command)\r\n   at Driver.Infrastructure.Repository.Repository`1.GetAsync(Guid id)\r\n   at Driver.Application.Services.Driver.DriverService.GetNameAlphabetizedAsync(Guid id)\r\n   at Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync(Guid id)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext)",
+  "InnerException": {
+    "ClassName": "System.InvalidCastException",
+    "Message": "Invalid cast from 'System.String' to 'System.Guid'.",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Convert.DefaultToType(IConvertible value, Type targetType, IFormatProvider provider)\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": null,
+    "HResult": -2147467262,
+    "Source": "System.Private.CoreLib",
+    "WatsonBuckets": null
+  }
+}---------
+2023-11-21 12:15:23.038 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - 500 null application/json 10230.1797ms
+2023-11-21 12:15:31.157 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - null null
+2023-11-21 12:15:31.162 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:15:31.167 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:15:31.183 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:15:31.265 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 95.873ms
+2023-11-21 12:15:31.267 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:15:33.582 +04:00 [ERR] ----------Exception---------{
+  "Message": "Error parsing column 0 (Id=03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - String)",
+  "StackTrace": "   at Dapper.SqlMapper.ThrowDataException(Exception ex, Int32 index, IDataReader reader, Object value) in /_/Dapper/SqlMapper.cs:line 3906\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)\r\n   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command)\r\n   at Driver.Infrastructure.Repository.Repository`1.GetAsync(Guid id)\r\n   at Driver.Application.Services.Driver.DriverService.GetAsync(Guid id)\r\n   at Driver.Api.Controllers.V1.DriversController.GetAsync(Guid id)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext)",
+  "InnerException": {
+    "ClassName": "System.InvalidCastException",
+    "Message": "Invalid cast from 'System.String' to 'System.Guid'.",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Convert.DefaultToType(IConvertible value, Type targetType, IFormatProvider provider)\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": null,
+    "HResult": -2147467262,
+    "Source": "System.Private.CoreLib",
+    "WatsonBuckets": null
+  }
+}---------
+2023-11-21 12:15:33.588 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/get/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - 500 null application/json 2431.8387ms
+2023-11-21 12:15:51.277 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/getall - null null
+2023-11-21 12:15:51.279 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAllAsync (Driver.Api)'
+2023-11-21 12:15:51.283 +04:00 [INF] Route matched with {action = "GetAll", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:15:51.296 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAllAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:15:51.383 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAllAsync (Driver.Api) in 99.2421ms
+2023-11-21 12:15:51.385 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAllAsync (Driver.Api)'
+2023-11-21 12:16:01.856 +04:00 [ERR] ----------Exception---------{
+  "Message": "Error parsing column 0 (Id=6EAA546A-5229-46BC-B4FA-D7F81A06E950 - String)",
+  "StackTrace": "   at Dapper.SqlMapper.ThrowDataException(Exception ex, Int32 index, IDataReader reader, Object value) in /_/Dapper/SqlMapper.cs:line 3906\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)\r\n   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command)\r\n   at Driver.Infrastructure.Repository.Repository`1.GetAllAsync()\r\n   at Driver.Application.Services.Driver.DriverService.GetAllAsync()\r\n   at Driver.Api.Controllers.V1.DriversController.GetAllAsync()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext)",
+  "InnerException": {
+    "ClassName": "System.InvalidCastException",
+    "Message": "Invalid cast from 'System.String' to 'System.Guid'.",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Convert.DefaultToType(IConvertible value, Type targetType, IFormatProvider provider)\r\n   at Deserializeb1a0f5d9-8321-4bc6-8d71-64c3f880612a(DbDataReader)",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": null,
+    "HResult": -2147467262,
+    "Source": "System.Private.CoreLib",
+    "WatsonBuckets": null
+  }
+}---------
+2023-11-21 12:16:01.863 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/getall - 500 null application/json 10586.6473ms
+2023-11-21 12:16:44.119 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:16:44.170 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:16:44.174 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:16:44.177 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:16:44.179 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:16:44.458 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:16:44.825 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 372.2032ms
+2023-11-21 12:16:44.845 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:16:44.846 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:16:44.856 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 10.8622ms
+2023-11-21 12:16:44.895 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.6032ms
+2023-11-21 12:16:44.983 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:16:45.221 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 238.6854ms
+2023-11-21 12:17:01.924 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - null null
+2023-11-21 12:17:01.947 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:17:01.963 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:17:02.083 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:17:14.981 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 13011.2075ms
+2023-11-21 12:17:14.984 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:17:19.172 +04:00 [ERR] ----------Exception---------{
+  "Message": "Entity with Id: 03b944a0-9da2-4b5c-97bc-585a1e1ee4fe is not found ",
+  "StackTrace": "   at Driver.Application.Services.Driver.DriverService.GetAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 29\r\n   at Driver.Api.Controllers.V1.DriversController.GetAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 40\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 12:17:22.062 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/get/03B944A0-9DA2-4B5C-97BC-585A1E1EE4FE - 404 null application/json 20138.7272ms
+2023-11-21 12:17:32.934 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - null null
+2023-11-21 12:17:32.940 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:17:32.943 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:17:32.960 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:18:18.445 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 45501.1536ms
+2023-11-21 12:18:18.447 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:18:22.544 +04:00 [ERR] ----------Exception---------{
+  "Message": "Entity with Id: 6eaa546a-5229-46bc-b4fa-d7f81a06e950 is not found ",
+  "StackTrace": "   at Driver.Application.Services.Driver.DriverService.GetAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 29\r\n   at Driver.Api.Controllers.V1.DriversController.GetAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 40\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 12:18:22.552 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - 404 null application/json 49619.2112ms
+2023-11-21 12:18:34.594 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - null null
+2023-11-21 12:18:34.602 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:18:34.603 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:18:34.622 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:19:09.387 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:19:09.407 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:19:09.411 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:19:09.413 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:19:09.414 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:19:12.392 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - null null
+2023-11-21 12:19:12.514 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:19:12.533 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:19:12.648 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:19:18.151 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:19:33.489 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:19:33.508 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:19:33.511 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:19:33.512 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:19:33.513 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:19:40.687 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:19:40.924 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 241.4759ms
+2023-11-21 12:19:40.943 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:19:40.943 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:19:40.959 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 16.0592ms
+2023-11-21 12:19:40.982 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.6131ms
+2023-11-21 12:19:41.036 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:19:41.210 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 174.363ms
+2023-11-21 12:19:43.095 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - null null
+2023-11-21 12:19:43.117 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:19:43.141 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:19:43.243 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:19:44.586 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 1441.4612ms
+2023-11-21 12:19:44.589 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:28:59.689 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:28:59.722 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:28:59.729 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:28:59.732 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:28:59.738 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:29:04.520 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:29:04.772 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 254.4851ms
+2023-11-21 12:29:04.793 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:29:04.793 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:29:04.799 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 6.8233ms
+2023-11-21 12:29:04.837 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.171ms
+2023-11-21 12:29:04.905 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:29:05.083 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 178.0603ms
+2023-11-21 12:29:09.877 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 12:29:09.882 +04:00 [INF] CORS policy execution successful.
+2023-11-21 12:29:09.900 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:29:09.915 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:29:10.009 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:29:10.098 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 84.7422ms.
+2023-11-21 12:29:10.103 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2023-11-21 12:29:10.111 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 193.5766ms
+2023-11-21 12:29:10.113 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:29:10.114 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 200 null application/json; charset=utf-8 237.5196ms
+2023-11-21 12:29:54.158 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:29:54.179 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:29:54.185 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:29:54.188 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:29:54.191 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:29:58.331 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:29:58.586 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 261.6659ms
+2023-11-21 12:29:58.604 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:29:58.605 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:29:58.612 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 7.7939ms
+2023-11-21 12:29:58.638 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.5106ms
+2023-11-21 12:29:58.697 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:29:58.870 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.3203ms
+2023-11-21 12:30:17.858 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - null null
+2023-11-21 12:30:17.881 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:30:17.896 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:30:17.999 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:30:27.331 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 9430.8768ms
+2023-11-21 12:30:27.333 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:30:28.797 +04:00 [ERR] ----------Exception---------{
+  "Message": "Entity with Id: 6eaa546a-5229-46bc-b4fa-d7f81a06e950 is not found ",
+  "StackTrace": "   at Driver.Application.Services.Driver.DriverService.GetAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 29\r\n   at Driver.Api.Controllers.V1.DriversController.GetAsync(Guid id) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 40\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 12:30:28.803 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/get/6EAA546A-5229-46BC-B4FA-D7F81A06E950 - 404 null application/json 10945.3435ms
+2023-11-21 12:30:43.715 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/3ADBB053-A0B7-4BAD-AAAE-B74DD2378227 - null null
+2023-11-21 12:30:43.720 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:30:43.722 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(System.Guid) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:30:43.741 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:31:01.631 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 17906.353ms
+2023-11-21 12:31:01.633 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:31:03.299 +04:00 [ERR] ----------Exception---------{
+  "Message": "Error parsing column 0 (Id=3ADBB053-A0B7-4BAD-AAAE-B74DD2378227 - String)",
+  "StackTrace": "   at Dapper.SqlMapper.ThrowDataException(Exception ex, Int32 index, IDataReader reader, Object value) in /_/Dapper/SqlMapper.cs:line 3906\r\n   at Deserialize52a37d52-2431-4085-8e17-561112bbc8fd(DbDataReader)\r\n   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command)\r\n   at Driver.Infrastructure.Repository.Repository`1.GetAsync(Guid id)\r\n   at Driver.Application.Services.Driver.DriverService.GetAsync(Guid id)\r\n   at Driver.Api.Controllers.V1.DriversController.GetAsync(Guid id)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext)",
+  "InnerException": {
+    "ClassName": "System.InvalidCastException",
+    "Message": "Invalid cast from 'System.String' to 'System.Guid'.",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Convert.DefaultToType(IConvertible value, Type targetType, IFormatProvider provider)\r\n   at Deserialize52a37d52-2431-4085-8e17-561112bbc8fd(DbDataReader)",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": null,
+    "HResult": -2147467262,
+    "Source": "System.Private.CoreLib",
+    "WatsonBuckets": null
+  }
+}---------
+2023-11-21 12:31:03.303 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/get/3ADBB053-A0B7-4BAD-AAAE-B74DD2378227 - 500 null application/json 19589.6072ms
+2023-11-21 12:41:53.191 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:41:53.211 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:41:53.214 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:41:53.215 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:41:53.216 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:41:56.023 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:41:56.280 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 259.4563ms
+2023-11-21 12:41:56.301 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:41:56.303 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:41:56.321 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 19.7337ms
+2023-11-21 12:41:56.356 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.2058ms
+2023-11-21 12:41:56.438 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:41:56.605 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 167.4286ms
+2023-11-21 12:42:00.068 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 12:42:00.072 +04:00 [INF] CORS policy execution successful.
+2023-11-21 12:42:00.093 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:42:00.105 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:42:00.202 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:42:00.336 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 225.5218ms
+2023-11-21 12:42:00.337 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:42:35.355 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:42:35.373 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:42:35.377 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:42:35.379 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:42:35.380 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:42:38.973 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:42:39.242 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 270.9654ms
+2023-11-21 12:42:39.265 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:42:39.266 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:42:39.272 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 7.1027ms
+2023-11-21 12:42:39.303 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.2433ms
+2023-11-21 12:42:39.389 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:42:39.563 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.9732ms
+2023-11-21 12:42:49.046 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 12:42:49.050 +04:00 [INF] CORS policy execution successful.
+2023-11-21 12:42:49.070 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:42:49.084 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:42:49.180 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:43:08.140 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 19051.3728ms
+2023-11-21 12:43:08.142 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:43:09.816 +04:00 [ERR] ----------Exception---------{
+  "Message": "SQLite Error 19: 'UNIQUE constraint failed: Drivers.Id'.",
+  "StackTrace": "   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)\r\n   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()\r\n   at System.Data.Common.DbCommand.ExecuteNonQueryAsync(CancellationToken cancellationToken)\r\n--- End of stack trace from previous location ---\r\n   at Dapper.SqlMapper.ExecuteMultiImplAsync(IDbConnection cnn, CommandDefinition command, IEnumerable multiExec) in /_/Dapper/SqlMapper.Async.cs:line 640\r\n   at Driver.Infrastructure.Repository.Repository`1.AddRangeAsync(List`1 entities) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Infrastructure\\Repository\\Repository.cs:line 41\r\n   at Driver.Application.Services.Driver.DriverService.AddRandomDriversAsync() in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 69\r\n   at Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync() in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 97\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 12:43:09.823 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 400 null application/json 20778.0591ms
+2023-11-21 12:50:51.626 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 12:50:51.639 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 12:50:51.640 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 12:50:51.641 +04:00 [INF] Hosting environment: Development
+2023-11-21 12:50:51.643 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 12:50:56.439 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 12:50:56.694 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 260.3151ms
+2023-11-21 12:50:56.710 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 12:50:56.719 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 8.9428ms
+2023-11-21 12:50:56.724 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 12:50:56.766 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.1868ms
+2023-11-21 12:50:56.837 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 12:50:57.011 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 174.3474ms
+2023-11-21 12:56:26.336 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 12:56:26.346 +04:00 [INF] CORS policy execution successful.
+2023-11-21 12:56:26.390 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:56:26.404 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:56:26.499 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:56:53.023 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 26520.25ms.
+2023-11-21 12:56:53.029 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2023-11-21 12:56:53.036 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 26628.7257ms
+2023-11-21 12:56:53.038 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 12:56:53.039 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 200 null application/json; charset=utf-8 26704.2401ms
+2023-11-21 12:57:06.587 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/get/1 - null null
+2023-11-21 12:57:06.596 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:57:06.606 +04:00 [INF] Route matched with {action = "Get", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAsync(Int32) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:57:06.628 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:57:15.236 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 8606.2694ms.
+2023-11-21 12:57:15.238 +04:00 [INF] Executing OkObjectResult, writing value of type 'Driver.Common.DTO.Driver.DriverDto'.
+2023-11-21 12:57:15.241 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api) in 8633.4541ms
+2023-11-21 12:57:15.243 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetAsync (Driver.Api)'
+2023-11-21 12:57:15.245 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/get/1 - 200 null application/json; charset=utf-8 8658.0098ms
+2023-11-21 12:57:22.937 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/1 - null null
+2023-11-21 12:57:22.940 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:57:22.944 +04:00 [INF] Route matched with {action = "GetNameAlphabetized", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNameAlphabetizedAsync(Int32) on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 12:57:22.959 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 12:57:47.063 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 24101.4391ms.
+2023-11-21 12:57:47.068 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-11-21 12:57:47.071 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api) in 24125.1888ms
+2023-11-21 12:57:47.079 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync (Driver.Api)'
+2023-11-21 12:57:47.080 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/v1/drivers/getnamealphabetized/1 - 200 null text/plain; charset=utf-8 24144.0611ms

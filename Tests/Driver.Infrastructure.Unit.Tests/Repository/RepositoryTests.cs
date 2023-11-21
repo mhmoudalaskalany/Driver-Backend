@@ -14,7 +14,7 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
             //Arrange
             var mockDbConnection = new Mock<IDbConnection>();
             var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
-            var id = Guid.NewGuid();
+            var id = 1;
             var expectedDriver = CreateDriver(id);
 
             mockDbConnection.SetupDapperAsync(c =>
@@ -40,8 +40,8 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
             var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
             var expectedResult = new List<Domain.Entities.Driver>
         {
-            new() { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe" },
-            new() { Id = Guid.NewGuid(), FirstName = "Jane", LastName = "Doe" }
+            new() { Id = 1, FirstName = "Mahmoud", LastName = "Ragab" },
+            new() { Id = 2, FirstName = "Ahmed", LastName = "Ragab" }
         };
 
             mockDbConnection.SetupDapperAsync(c => c.QueryAsync<Domain.Entities.Driver>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<IDbTransaction>(), It.IsAny<int?>(), It.IsAny<CommandType?>()))
@@ -60,7 +60,7 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
             // Arrange
             var mockDbConnection = new Mock<IDbConnection>();
             var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
-            var entityToAdd = CreateDriver(Guid.NewGuid());
+            var entityToAdd = CreateDriver(1);
 
             mockDbConnection
                 .SetupDapperAsync(c => c.ExecuteAsync(It.IsAny<string>(), It.IsAny<object>(), null, null, null))
@@ -78,8 +78,8 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
             // Arrange
             var mockDbConnection = new Mock<IDbConnection>();
             var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
-            var driver1 = CreateDriver(Guid.NewGuid());
-            var driver2 = CreateDriver(Guid.NewGuid());
+            var driver1 = CreateDriver(1);
+            var driver2 = CreateDriver(2);
             var entities  = new List<Domain.Entities.Driver> { driver1, driver2 };
             mockDbConnection
                 .SetupDapperAsync(c => c.ExecuteAsync(It.IsAny<string>(), It.IsAny<List<Domain.Entities.Driver>>(), null, null, null))
@@ -97,7 +97,7 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
             // Arrange
             var mockDbConnection = new Mock<IDbConnection>();
             var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
-            var entityToUpdate = CreateDriver(Guid.NewGuid());
+            var entityToUpdate = CreateDriver(1);
 
             mockDbConnection
                 .SetupDapperAsync(c => c.ExecuteAsync(It.IsAny<string>(), It.IsAny<object>(), null, null, null))
@@ -115,7 +115,7 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
             // Arrange
             var mockDbConnection = new Mock<IDbConnection>();
             var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
-            var entityToDelete = CreateDriver(Guid.NewGuid());
+            var entityToDelete = CreateDriver(1);
 
             mockDbConnection
                 .SetupDapperAsync(c => c.ExecuteAsync(It.IsAny<string>(), It.IsAny<object>(), null, null, null))
@@ -150,7 +150,7 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
 
 
 
-        private Domain.Entities.Driver CreateDriver(Guid id)
+        private Domain.Entities.Driver CreateDriver(int id)
         {
             var driver = new Domain.Entities.Driver()
             {

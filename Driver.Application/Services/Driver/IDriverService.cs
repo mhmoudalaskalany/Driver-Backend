@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Driver.Common.DTO.Driver;
 
@@ -7,7 +6,9 @@ namespace Driver.Application.Services.Driver
 {
     public interface IDriverService
     {
-        Task<DriverDto> GetAsync(Guid id);
+        Task<DriverDto> GetAsync(int id);
+
+        Task<string> GetNameAlphabetizedAsync(int id);
 
         Task<List<DriverDto>> GetAllAsync();
 
@@ -17,6 +18,6 @@ namespace Driver.Application.Services.Driver
 
         Task<DriverDto> UpdateAsync(UpdateDriverDto model);
 
-        Task<bool> DeleteAsync(Guid id);
+        Task<bool> DeleteAsync(int id);
     }
 }

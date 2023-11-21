@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +15,7 @@ namespace Driver.Infrastructure.Repository
             _dbConnection = dbConnection;
         }
 
-        public async Task<T> GetAsync(Guid id)
+        public async Task<T> GetAsync(int id)
         {
             var query = BuildSelectQuery();
             return await _dbConnection.QueryFirstOrDefaultAsync<T>(query, new { Id = id });
@@ -39,7 +38,7 @@ namespace Driver.Infrastructure.Repository
         public async Task<int> AddRangeAsync(List<T> entities)
         {
             var query = BuildInsertQuery();
-            var rows =await _dbConnection.ExecuteAsync(query, entities);
+            var rows = await _dbConnection.ExecuteAsync(query, entities);
             return rows;
         }
 
@@ -63,8 +62,8 @@ namespace Driver.Infrastructure.Repository
         private string BuildInsertQuery()
         {
             var properties = GetProperties();
-            var columns = string.Join(", ", properties.Select(p => p.Name));
-            var values = string.Join(", ", properties.Select(p => "@" + p.Name));
+            var columns = string.Join(", ", properties.Where(p => p.Name != "Id").Select(p => p.Name));
+            var values = string.Join(", ", properties.Where(p => p.Name != "Id").Select(p => "@" + p.Name));
             return $"INSERT INTO {typeof(T).Name}s ({columns}) VALUES ({values})";
         }
 
@@ -99,16 +98,16 @@ namespace Driver.Infrastructure.Repository
 
         public int CreateDriversTable()
         {
-           var result =  _dbConnection.Execute(@"
+            var result = _dbConnection.Execute(@"
             CREATE TABLE IF NOT EXISTS Drivers (
-                Id GUID PRIMARY KEY,
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 FirstName NVARCHAR(250) NOT NULL,
                 LastName NVARCHAR(250) NOT NULL,
                 Email NVARCHAR(100) NOT NULL,
                 PhoneNumber NVARCHAR(20) NOT NULL
             )");
 
-           return result;
+            return result;
         }
 
     }

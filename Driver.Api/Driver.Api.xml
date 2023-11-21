@@ -17,7 +17,13 @@
             Constructor
             </summary>
         </member>
-        <member name="M:Driver.Api.Controllers.V1.DriversController.GetAsync(System.Guid)">
+        <member name="M:Driver.Api.Controllers.V1.DriversController.GetAsync(System.Int32)">
+            <summary>
+            Get Driver by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Driver.Api.Controllers.V1.DriversController.GetNameAlphabetizedAsync(System.Int32)">
             <summary>
             Get Driver by Id
             </summary>
@@ -47,7 +53,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Driver.Api.Controllers.V1.DriversController.DeleteAsync(System.Guid)">
+        <member name="M:Driver.Api.Controllers.V1.DriversController.DeleteAsync(System.Int32)">
             <summary>
             Delete Driver By Id
             </summary>

@@ -22,7 +22,7 @@ namespace Driver.Api.Unit.Tests.Controllers.V1
         public async Task GetAsync_Return_Ok()
         {
             //Arrange
-            var id = Guid.NewGuid();
+            var id = 1;
             var result = Fixture.Build<DriverDto>().With(c => c.Id , id).Create();
             _driverServiceMock.Setup(x => x.GetAsync(id))
                 .Returns(Task.FromResult(result));
@@ -111,9 +111,9 @@ namespace Driver.Api.Unit.Tests.Controllers.V1
         public async Task UpdateAsync_Return_Removed()
         {
             //Arrange
-            var id = Guid.NewGuid();
+            var id = 1;
             var result = true;
-            _driverServiceMock.Setup(x => x.DeleteAsync(It.IsAny<Guid>()))
+            _driverServiceMock.Setup(x => x.DeleteAsync(It.IsAny<int>()))
                 .ReturnsAsync(result);
 
             //Act

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace Driver.Common.DTO.Driver
 {
     [ExcludeFromCodeCoverage]
     public class DriverDto 
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string FirstName { get; set; }
 

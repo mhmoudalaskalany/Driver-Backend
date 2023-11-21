@@ -24,6 +24,17 @@ namespace Driver.Application.Services.Driver
             return randomDrivers;
         }
 
+        public string Alphabetize(string fullName)
+        {
+            var words = fullName.Split(' ');
+            
+            var alphabetizedWords = words.Select(AlphabetizeWord);
+            
+            var alphabetizedName = string.Join(' ', alphabetizedWords);
+
+            return alphabetizedName;
+        }
+
         private string GenerateRandomString(Random random, int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -34,6 +45,17 @@ namespace Driver.Application.Services.Driver
         private string GenerateRandomPhoneNumber(Random random)
         {
             return $"{random.Next(100, 999)}-{random.Next(100, 999)}-{random.Next(1000, 9999)}";
+        }
+
+        private string AlphabetizeWord(string word)
+        {
+            var charArray = word.ToCharArray();
+            
+            Array.Sort(charArray);
+            
+            var sortedWord = new string(charArray);
+
+            return sortedWord;
         }
     }
 }

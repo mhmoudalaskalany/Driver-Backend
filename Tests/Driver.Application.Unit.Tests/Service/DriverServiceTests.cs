@@ -5,6 +5,7 @@ using Driver.Application.Mapping;
 using Driver.Application.Services.Driver;
 using Driver.Common.Abstraction.Repository;
 using Driver.Common.DTO.Driver;
+using Driver.Common.Exceptions;
 using Moq;
 
 namespace Driver.Application.Unit.Tests.Service
@@ -61,6 +62,60 @@ namespace Driver.Application.Unit.Tests.Service
 
             // assert
             Assert.Equal(result.Id, entity.Id);
+        }
+
+        [Fact]
+        public async Task GetNameAlphabetizedAsync_ShouldReturnAlphabetizedName_WhenEntityExists()
+        {
+            // Arrange
+            var entityId = 1; 
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var mockRandomDriverService = new Mock<IRandomDriverService>();
+
+
+            var mockEntity = new Domain.Entities.Driver
+            {
+                Id = entityId,
+                FirstName = "Mahmoud",
+                LastName = "Ragab",
+                Email = "mahmoud@test.test",
+                PhoneNumber = "9999999"
+            };
+
+            mockRepository.Setup(repo => repo.GetAsync(entityId))
+                          .ReturnsAsync(mockEntity);
+
+            var expectedAlphabetizedName = "Madohmu  abgaR";
+
+            mockRandomDriverService.Setup(service => service.Alphabetize(It.IsAny<string>()))
+                                  .Returns(expectedAlphabetizedName);
+
+            var driverService = new DriverService(mockRepository.Object, mockMapper.Object, mockRandomDriverService.Object);
+
+            // Act
+            var result = await driverService.GetNameAlphabetizedAsync(entityId);
+
+            // Assert
+            Assert.Equal(expectedAlphabetizedName, result);
+        }
+
+        [Fact]
+        public async Task GetNameAlphabetizedAsync_ShouldThrowEntityNotFoundException_WhenEntityDoesNotExist()
+        {
+            // Arrange
+            var entityId = 1; 
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var mockRandomDriverService = new Mock<IRandomDriverService>();
+
+            mockRepository.Setup(repo => repo.GetAsync(entityId))
+                          .ReturnsAsync((Domain.Entities.Driver)null);
+
+            var driverService = new DriverService(mockRepository.Object, mockMapper.Object, mockRandomDriverService.Object);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<EntityNotFoundException>(() => driverService.GetNameAlphabetizedAsync(entityId));
         }
 
         [Fact]

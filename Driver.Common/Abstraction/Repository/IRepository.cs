@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Driver.Common.Abstraction.Repository
@@ -10,7 +9,7 @@ namespace Driver.Common.Abstraction.Repository
         /// Get
         /// </summary>
         /// <returns></returns>
-        Task<T> GetAsync(Guid id);
+        Task<T> GetAsync(int id);
 
         /// <summary>
         /// Get All
@@ -35,7 +34,7 @@ namespace Driver.Common.Abstraction.Repository
         /// Update Async
         /// </summary>
         /// <returns></returns>
-        Task<T> UpdateAsync( T entity);
+        Task<T> UpdateAsync(T entity);
 
 
         /// <summary>

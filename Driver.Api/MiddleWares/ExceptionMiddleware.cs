@@ -117,8 +117,9 @@ namespace Driver.Api.MiddleWares
         {
             context.Response.StatusCode = (int)HttpStatusCode.NotFound;
 
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse() { Message = ex.Message }));
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse() { Message = ex.Message  }));
         }
+
 
 
         /// <summary>

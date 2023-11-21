@@ -31,6 +31,7 @@ namespace Driver.Application.Unit.Tests
         public static List<Domain.Entities.Driver> CreateDriversList(List<AddDriverDto> driversDto)
         {
             var drivers = new List<Domain.Entities.Driver>();
+            var count = 1;
             foreach (var driverDto in driversDto)
             {
                 drivers.Add( new Domain.Entities.Driver()
@@ -39,7 +40,7 @@ namespace Driver.Application.Unit.Tests
                     FirstName = driverDto.FirstName,
                     LastName = driverDto.LastName,
                     PhoneNumber = driverDto.PhoneNumber,
-                    Id = Guid.NewGuid()
+                    Id = count++
                 });
             }
 
@@ -47,7 +48,7 @@ namespace Driver.Application.Unit.Tests
         }
 
 
-        public static UpdateDriverDto CreateUpdateDriverDto(Guid id)
+        public static UpdateDriverDto CreateUpdateDriverDto(int id)
         {
             var driver = new UpdateDriverDto()
             {
@@ -61,7 +62,7 @@ namespace Driver.Application.Unit.Tests
             return driver;
         }
 
-        public static DriverDto CreateDriverDto(Guid id)
+        public static DriverDto CreateDriverDto(int id)
         {
             var driver = new DriverDto()
             {
@@ -80,7 +81,7 @@ namespace Driver.Application.Unit.Tests
         {
             var driver = new Domain.Entities.Driver()
             {
-                Id = Guid.NewGuid(),
+                Id = 1,
                 Email = "mahmoud@gmail.com",
                 FirstName = "Mahmoud",
                 LastName = "Ragab",

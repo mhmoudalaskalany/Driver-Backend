@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Driver.Common.Abstraction.Repository;
 using Driver.Common.DTO.Driver;
+using Driver.Common.Exceptions;
 
 namespace Driver.Application.Services.Driver
 {
@@ -20,11 +21,27 @@ namespace Driver.Application.Services.Driver
         }
 
 
-        public async Task<DriverDto> GetAsync(Guid id)
+        public async Task<DriverDto> GetAsync(int id)
         {
             var entity = await _repository.GetAsync(id);
+            if (entity == null)
+            {
+                throw new EntityNotFoundException(id.ToString());
+            }
             var mapped = _mapper.Map<DriverDto>(entity);
             return mapped;
+        }
+
+        public async Task<string> GetNameAlphabetizedAsync(int id)
+        {
+            var entity = await _repository.GetAsync(id);
+            if (entity == null)
+            {
+                throw new EntityNotFoundException(id.ToString());
+            }
+
+            var alphabetizedName = _randomDriverService.Alphabetize(entity.FirstName + " " + entity.LastName);
+            return alphabetizedName;
         }
 
 
@@ -47,7 +64,7 @@ namespace Driver.Application.Services.Driver
 
         public async Task<int> AddRandomDriversAsync()
         {
-            var randomDrivers =_randomDriverService.GenerateRandomDrivers(10);
+            var randomDrivers = _randomDriverService.GenerateRandomDrivers(10);
             var entities = _mapper.Map<List<AddDriverDto>, List<Domain.Entities.Driver>>(randomDrivers);
             var row = await _repository.AddRangeAsync(entities);
             return row;
@@ -64,7 +81,7 @@ namespace Driver.Application.Services.Driver
             return mapped;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(int id)
         {
             var entity = await _repository.GetAsync(id);
             var result = await _repository.DeleteAsync(entity);

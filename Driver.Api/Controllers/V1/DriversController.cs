@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Asp.Versioning;
 using Driver.Api.Controllers.V1.Base;
@@ -35,9 +34,23 @@ namespace Driver.Api.Controllers.V1
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActionResult<DriverDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
-        public async Task<IActionResult> GetAsync(Guid id)
+        public async Task<IActionResult> GetAsync(int id)
         {
             var result = await _service.GetAsync(id);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Get Driver by Id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getNameAlphabetized/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActionResult<SuccessResponse<string>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
+        public async Task<IActionResult> GetNameAlphabetizedAsync(int id)
+        {
+            var result = await _service.GetNameAlphabetizedAsync(id);
             return Ok(result);
         }
 
@@ -107,7 +120,7 @@ namespace Driver.Api.Controllers.V1
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActionResult<bool>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await _service.DeleteAsync(id);
             return Ok(result);

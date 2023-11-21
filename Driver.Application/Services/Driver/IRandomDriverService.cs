@@ -6,5 +6,7 @@ namespace Driver.Application.Services.Driver
     public interface IRandomDriverService
     {
         List<AddDriverDto> GenerateRandomDrivers(int count);
+
+        string Alphabetize(string fullName);
     }
 }
