@@ -34,23 +34,40 @@ namespace Driver.Api.Unit.Tests.Controllers.V1
             Assert.Equal(response.StatusCode , 200);
         }
 
+        [Fact]
+        public async Task GetNameAlphabetizedAsync_Return_Ok()
+        {
+            //Arrange
+            var id = 1;
+            var result = "Madhmou Raabg";
+            _driverServiceMock.Setup(x => x.GetNameAlphabetizedAsync(id))
+                .ReturnsAsync(result);
+
+            //Act
+            var response = (OkObjectResult)await _controller.GetNameAlphabetizedAsync(id);
+
+            //Assert
+            Assert.Equal(response.StatusCode, 200);
+            Assert.Equal(response.Value, result);
+        }
+
 
         [Fact]
         public async Task GetAllAsync_Return_Ok()
         {
             //Arrange
-            var result = Fixture.Build<DriverDto>().CreateMany(3);
+            var result = Fixture.Build<DriverDto>().CreateMany(3).ToList();
 
             _driverServiceMock.Setup(x => x.GetAllAsync())
-                .ReturnsAsync(result.ToList);
+                .ReturnsAsync(result);
 
             //Act
             var response = (OkObjectResult)await _controller.GetAllAsync();
-            var list = (List<DriverDto>)response.Value;
+            var list = (List<DriverDto>)response.Value!;
             //Assert
             Assert.NotNull(list);
             Assert.Equal(response.StatusCode, 200);
-            Assert.Equal(list.Count, 3);
+            Assert.Equal(list.Count, result.Count());
         }
 
 
@@ -120,7 +137,7 @@ namespace Driver.Api.Unit.Tests.Controllers.V1
             var response = (OkObjectResult)await _controller.DeleteAsync(id);
 
             //Assert
-            Assert.True((bool)response.Value);
+            Assert.True((bool)response.Value!);
         }
 
 

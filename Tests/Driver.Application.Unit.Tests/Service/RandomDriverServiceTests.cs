@@ -76,9 +76,9 @@ namespace Driver.Application.Unit.Tests.Service
         }
 
         [Theory]
-        [InlineData("Mahmoud Ragab", "Mdhmoau Rbaag")]
-        [InlineData("Ahmed Gafar", "Aademh Aafrg")]
-        [InlineData("Hossam Alaskalany", "Aahlmo Aaalaklnsy")]
+        [InlineData("Mahmoud Ragab", "Madhmou Raabg")]
+        [InlineData("Ahmed Gafar", "Adehm Gaafr")]
+        [InlineData("Hossam Alaskalany", "Hamoss Aaaakllnsy")]
         public void Alphabetize_ShouldReturnAlphabetizedName_WhenFullNameProvided(string fullName, string expectedAlphabetizedName)
         {
             // Arrange

@@ -65,6 +65,24 @@ namespace Driver.Application.Unit.Tests.Service
         }
 
         [Fact]
+        public async Task GetAsync_ShouldThrowEntityNotFoundException_WhenEntityDoesNotExist()
+        {
+            // Arrange
+            var entityId = 1;
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var mockRandomDriverService = new Mock<IRandomDriverService>();
+
+            mockRepository.Setup(repo => repo.GetAsync(entityId))!
+                .ReturnsAsync((Domain.Entities.Driver)null!);
+
+            var driverService = new DriverService(mockRepository.Object, mockMapper.Object, mockRandomDriverService.Object);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<EntityNotFoundException>(() => driverService.GetAsync(entityId));
+        }
+
+        [Fact]
         public async Task GetNameAlphabetizedAsync_ShouldReturnAlphabetizedName_WhenEntityExists()
         {
             // Arrange
@@ -86,7 +104,7 @@ namespace Driver.Application.Unit.Tests.Service
             mockRepository.Setup(repo => repo.GetAsync(entityId))
                           .ReturnsAsync(mockEntity);
 
-            var expectedAlphabetizedName = "Madohmu  abgaR";
+            var expectedAlphabetizedName = "Madhmou Raabg";
 
             mockRandomDriverService.Setup(service => service.Alphabetize(It.IsAny<string>()))
                                   .Returns(expectedAlphabetizedName);
@@ -109,8 +127,8 @@ namespace Driver.Application.Unit.Tests.Service
             var mockMapper = new Mock<IMapper>();
             var mockRandomDriverService = new Mock<IRandomDriverService>();
 
-            mockRepository.Setup(repo => repo.GetAsync(entityId))
-                          .ReturnsAsync((Domain.Entities.Driver)null);
+            mockRepository.Setup(repo => repo.GetAsync(entityId))!
+                          .ReturnsAsync((Domain.Entities.Driver)null!);
 
             var driverService = new DriverService(mockRepository.Object, mockMapper.Object, mockRandomDriverService.Object);
 
