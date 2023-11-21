@@ -75,5 +75,36 @@ namespace Driver.Application.Unit.Tests.Service
             });
         }
 
+        [Theory]
+        [InlineData("Mahmoud Ragab", "Mdhmoau Rbaag")]
+        [InlineData("Ahmed Gafar", "Aademh Aafrg")]
+        [InlineData("Hossam Alaskalany", "Aahlmo Aaalaklnsy")]
+        public void Alphabetize_ShouldReturnAlphabetizedName_WhenFullNameProvided(string fullName, string expectedAlphabetizedName)
+        {
+            // Arrange
+            var randomDriverService = new RandomDriverService();
+
+            // Act
+            var result = randomDriverService.Alphabetize(fullName);
+
+            // Assert
+            Assert.Equal(expectedAlphabetizedName, result);
+        }
+
+
+
+        [Fact]
+        public void Alphabetize_ShouldReturnEmptyString_WhenEmptyFullNameProvided()
+        {
+            // Arrange
+            var randomDriverService = new RandomDriverService();
+
+            // Act
+            var result = randomDriverService.Alphabetize(string.Empty);
+
+            // Assert
+            Assert.Equal(string.Empty, result);
+        }
+
     }
 }
