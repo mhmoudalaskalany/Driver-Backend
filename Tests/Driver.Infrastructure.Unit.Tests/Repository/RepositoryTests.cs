@@ -73,6 +73,25 @@ namespace Driver.Infrastructure.Unit.Tests.Repository
         }
 
         [Fact]
+        public async Task AddRangeAsync_ShouldAddEntityToDatabaseAndReturnCount()
+        {
+            // Arrange
+            var mockDbConnection = new Mock<IDbConnection>();
+            var repository = new Repository<Domain.Entities.Driver>(mockDbConnection.Object);
+            var driver1 = CreateDriver(Guid.NewGuid());
+            var driver2 = CreateDriver(Guid.NewGuid());
+            var entities  = new List<Domain.Entities.Driver> { driver1, driver2 };
+            mockDbConnection
+                .SetupDapperAsync(c => c.ExecuteAsync(It.IsAny<string>(), It.IsAny<List<Domain.Entities.Driver>>(), null, null, null))
+                .ReturnsAsync(1);
+            // Act
+            var result = await repository.AddRangeAsync(entities);
+
+            // Assert
+            Assert.Equal(entities.Count, result);
+        }
+
+        [Fact]
         public async Task UpdateAsync_ShouldUpdateEntityInDatabase()
         {
             // Arrange
