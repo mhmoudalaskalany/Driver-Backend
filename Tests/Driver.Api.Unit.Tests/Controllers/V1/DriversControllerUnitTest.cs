@@ -72,6 +72,24 @@ namespace Driver.Api.Unit.Tests.Controllers.V1
         }
 
 
+
+        [Fact]
+        public async Task AddRandomDriversAsync_Return_Created_Count()
+        {
+            //Arrange
+            
+            _driverServiceMock.Setup(x => x.AddRandomDriversAsync())
+                .ReturnsAsync(10);
+
+            //Act
+            var response = (OkObjectResult)await _controller.AddRandomDriversAsync();
+
+            //Assert
+            Assert.Equal(response.StatusCode, 200);
+            Assert.Equal(response.Value, 10);
+        }
+
+
         [Fact]
         public async Task UpdateAsync_Return_Updated()
         {
