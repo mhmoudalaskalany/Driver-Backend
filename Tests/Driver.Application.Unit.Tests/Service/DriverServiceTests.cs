@@ -12,6 +12,7 @@ namespace Driver.Application.Unit.Tests.Service
     public class DriverServiceTests : AutoFixtureBase
     {
         private readonly Mock<IRepository<Domain.Entities.Driver>> _repositoryMock;
+        private readonly Mock<IRandomDriverService> _randomDriverServiceMock;
         private readonly MapperConfiguration _mapperConfig;
         public DriverServiceTests()
         {
@@ -20,6 +21,9 @@ namespace Driver.Application.Unit.Tests.Service
 
             _mapperConfig = new MapperConfiguration(config => config.AddProfile<MappingService>());
             Fixture.Register(() => _mapperConfig.CreateMapper());
+
+            _randomDriverServiceMock = new Mock<IRandomDriverService>();
+            Fixture.Register(() => _randomDriverServiceMock.Object);
 
         }
 
@@ -87,7 +91,7 @@ namespace Driver.Application.Unit.Tests.Service
             // Arrange
             var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
             var mockMapper = new Mock<IMapper>();
-            var service = new DriverService(mockRepository.Object, mockMapper.Object);
+            var service = new DriverService(mockRepository.Object, mockMapper.Object , _randomDriverServiceMock.Object);
 
             var addDriverDto = CreateAddDriverDto();
             var addedEntity = CreateDriver();
@@ -114,7 +118,7 @@ namespace Driver.Application.Unit.Tests.Service
             // Arrange
             var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
             var mockMapper = new Mock<IMapper>();
-            var service = new DriverService(mockRepository.Object, mockMapper.Object);
+            var service = new DriverService(mockRepository.Object, mockMapper.Object, _randomDriverServiceMock.Object);
 
             var updatedEntity = CreateDriver();
             var updateDriverDto = CreateUpdateDriverDto(updatedEntity.Id);
@@ -142,16 +146,15 @@ namespace Driver.Application.Unit.Tests.Service
             // Arrange
             var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
             var mockMapper = new Mock<IMapper>();
-            var service = new DriverService(mockRepository.Object, mockMapper.Object);
+            var service = new DriverService(mockRepository.Object, mockMapper.Object, _randomDriverServiceMock.Object);
+            
+            var entityToDelete =CreateDriver();
 
-            var driverId = Guid.NewGuid();
-            var entityToDelete = new Domain.Entities.Driver { Id = driverId, FirstName = "John", LastName = "Doe" };
-
-            mockRepository.Setup(repo => repo.GetAsync(driverId)).ReturnsAsync(entityToDelete);
+            mockRepository.Setup(repo => repo.GetAsync(entityToDelete.Id)).ReturnsAsync(entityToDelete);
             mockRepository.Setup(repo => repo.DeleteAsync(entityToDelete)).ReturnsAsync(true);
 
             // Act
-            var result = await service.DeleteAsync(driverId);
+            var result = await service.DeleteAsync(entityToDelete.Id);
 
             // Assert
             Assert.True(result);

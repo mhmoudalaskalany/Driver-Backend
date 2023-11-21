@@ -72,7 +72,7 @@ namespace Driver.Api.Controllers.V1
 
 
         /// <summary>
-        /// Add Driver
+        /// Add Random Drivers
         /// </summary>
         /// <returns></returns>
         [HttpPost("addRandomDrivers")]

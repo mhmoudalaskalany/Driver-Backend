@@ -1,0 +1,170 @@
+2023-11-21 11:16:35.541 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:16:35.567 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:16:35.570 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:16:35.572 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:16:35.575 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:16:35.984 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:16:36.392 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 413.2131ms
+2023-11-21 11:16:36.421 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:16:36.432 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 10.2446ms
+2023-11-21 11:16:36.438 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:16:36.483 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.4949ms
+2023-11-21 11:16:36.550 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:16:36.727 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 176.438ms
+2023-11-21 11:16:59.092 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:16:59.106 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:16:59.126 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:16:59.140 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:16:59.240 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:17:34.450 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:17:34.467 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:17:34.472 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:17:34.473 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:17:34.477 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:17:40.000 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:17:40.258 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 262.2288ms
+2023-11-21 11:17:40.279 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:17:40.279 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:17:40.292 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 13.1226ms
+2023-11-21 11:17:40.312 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.4151ms
+2023-11-21 11:17:40.368 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:17:40.540 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 172.957ms
+2023-11-21 11:17:47.879 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:17:47.883 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:17:47.905 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:17:47.918 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:17:48.008 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:23:48.160 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 360240.3648ms
+2023-11-21 11:23:48.162 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:24:08.406 +04:00 [ERR] ----------Exception---------{
+  "Message": "SQLite Error 19: 'UNIQUE constraint failed: Drivers.Id'.",
+  "StackTrace": "   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)\r\n   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()\r\n   at System.Data.Common.DbCommand.ExecuteNonQueryAsync(CancellationToken cancellationToken)\r\n--- End of stack trace from previous location ---\r\n   at Dapper.SqlMapper.ExecuteMultiImplAsync(IDbConnection cnn, CommandDefinition command, IEnumerable multiExec) in /_/Dapper/SqlMapper.Async.cs:line 640\r\n   at Driver.Infrastructure.Repository.Repository`1.AddRangeAsync(List`1 entities) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Infrastructure\\Repository\\Repository.cs:line 42\r\n   at Driver.Application.Services.Driver.DriverService.AddRandomDriversAsync() in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Application\\Services\\Driver\\DriverService.cs:line 52\r\n   at Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync() in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\Controllers\\V1\\DriversController.cs:line 84\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Driver.Api.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Work\\Freelance\\My Repos\\Backend\\.Net Core\\BuildingLink\\Driver-Backend\\Driver.Api\\MiddleWares\\ExceptionMiddleware.cs:line 49",
+  "InnerException": null
+}---------
+2023-11-21 11:24:08.412 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 400 null application/json 380535.4829ms
+2023-11-21 11:25:57.747 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2023-11-21 11:25:57.787 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 404 0 null 41.0835ms
+2023-11-21 11:25:57.791 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/, Response status code: 404
+2023-11-21 11:26:03.238 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html?urls.primaryName=V1 - null null
+2023-11-21 11:26:03.276 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html?urls.primaryName=V1 - 200 null text/html;charset=utf-8 38.1214ms
+2023-11-21 11:26:03.298 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:26:03.299 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:26:03.301 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 2.9877ms
+2023-11-21 11:26:03.322 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.7742ms
+2023-11-21 11:26:03.388 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:26:03.399 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.3188ms
+2023-11-21 11:26:07.122 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:26:07.126 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:26:07.128 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:26:07.130 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:26:07.145 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:28:44.552 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:28:44.572 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:28:44.575 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:28:44.577 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:28:44.578 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:28:49.695 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:28:49.973 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 280.2084ms
+2023-11-21 11:28:50.001 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:28:50.005 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:28:50.021 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 20.3292ms
+2023-11-21 11:28:50.051 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.1274ms
+2023-11-21 11:28:50.128 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:28:50.301 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.534ms
+2023-11-21 11:29:02.035 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:29:02.038 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:29:02.058 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:29:02.072 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:29:02.173 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:29:32.350 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:29:32.365 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:29:32.367 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:29:32.368 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:29:32.369 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:29:38.764 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:29:39.033 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 273.9031ms
+2023-11-21 11:29:39.056 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:29:39.056 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:29:39.088 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 32.2571ms
+2023-11-21 11:29:39.119 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.2279ms
+2023-11-21 11:29:39.178 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:29:39.351 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.0611ms
+2023-11-21 11:29:42.377 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:29:42.383 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:29:42.404 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:29:42.420 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:29:42.519 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:30:39.760 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:30:39.774 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:30:39.776 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:30:39.777 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:30:39.778 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:30:43.866 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:30:44.122 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 258.347ms
+2023-11-21 11:30:44.143 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:30:44.143 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:30:44.149 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 7.0202ms
+2023-11-21 11:30:44.179 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.5364ms
+2023-11-21 11:30:44.240 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:30:44.395 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 156.1299ms
+2023-11-21 11:30:51.960 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:30:51.965 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:30:51.985 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:30:51.999 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:30:52.098 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:31:26.983 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:31:26.997 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:31:26.998 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:31:26.999 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:31:27.000 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:31:27.254 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:31:27.486 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 234.8928ms
+2023-11-21 11:31:27.508 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:31:27.508 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:31:27.517 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 10.0367ms
+2023-11-21 11:31:27.556 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.3812ms
+2023-11-21 11:31:27.617 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:31:27.773 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 156.4637ms
+2023-11-21 11:31:33.241 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:31:33.250 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:31:33.268 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:31:33.282 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:31:33.377 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:31:33.483 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 99.9222ms.
+2023-11-21 11:31:33.488 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2023-11-21 11:31:33.497 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 211.3774ms
+2023-11-21 11:31:33.499 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:31:33.500 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 200 null application/json; charset=utf-8 258.8047ms
+2023-11-21 11:32:42.383 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:32:42.396 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:32:42.398 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:32:42.399 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:32:42.415 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:32:42.468 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 51.3916ms.
+2023-11-21 11:32:42.470 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2023-11-21 11:32:42.471 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 70.9012ms
+2023-11-21 11:32:42.473 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:32:42.474 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 200 null application/json; charset=utf-8 91.0738ms
+2023-11-21 11:35:32.187 +04:00 [INF] Now listening on: https://localhost:5001
+2023-11-21 11:35:32.201 +04:00 [INF] Now listening on: http://localhost:5000
+2023-11-21 11:35:32.202 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 11:35:32.203 +04:00 [INF] Hosting environment: Development
+2023-11-21 11:35:32.204 +04:00 [INF] Content root path: D:\Work\Freelance\My Repos\Backend\.Net Core\BuildingLink\Driver-Backend\Driver.Api
+2023-11-21 11:35:41.309 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - null null
+2023-11-21 11:35:41.546 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - 200 null text/html;charset=utf-8 239.6502ms
+2023-11-21 11:35:41.567 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2023-11-21 11:35:41.567 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 11:35:41.585 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 17.6014ms
+2023-11-21 11:35:41.614 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.2777ms
+2023-11-21 11:35:41.672 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2023-11-21 11:35:41.834 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 162.2308ms
+2023-11-21 11:35:43.300 +04:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - null 0
+2023-11-21 11:35:43.306 +04:00 [INF] CORS policy execution successful.
+2023-11-21 11:35:43.327 +04:00 [INF] Executing endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:35:43.343 +04:00 [INF] Route matched with {action = "AddRandomDrivers", controller = "Drivers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRandomDriversAsync() on controller Driver.Api.Controllers.V1.DriversController (Driver.Api).
+2023-11-21 11:35:43.446 +04:00 [INF] Executing action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) - Validation state: "Valid"
+2023-11-21 11:35:43.531 +04:00 [INF] Executed action method Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 80.6857ms.
+2023-11-21 11:35:43.536 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2023-11-21 11:35:43.545 +04:00 [INF] Executed action Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api) in 197.6762ms
+2023-11-21 11:35:43.547 +04:00 [INF] Executed endpoint 'Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync (Driver.Api)'
+2023-11-21 11:35:43.548 +04:00 [INF] Request finished HTTP/2 POST https://localhost:5001/api/v1/drivers/addrandomdrivers - 200 null application/json; charset=utf-8 247.6916ms

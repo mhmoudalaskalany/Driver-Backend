@@ -25,6 +25,13 @@ namespace Driver.Common.Abstraction.Repository
         Task<T> AddAsync(T newEntity);
 
         /// <summary>
+        /// Add Range
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        Task<int> AddRangeAsync(List<T> entities);
+
+        /// <summary>
         /// Update Async
         /// </summary>
         /// <returns></returns>

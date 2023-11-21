@@ -36,6 +36,13 @@ namespace Driver.Infrastructure.Repository
             return entity;
         }
 
+        public async Task<int> AddRangeAsync(List<T> entities)
+        {
+            var query = BuildInsertQuery();
+            var rows =await _dbConnection.ExecuteAsync(query, entities);
+            return rows;
+        }
+
 
         public async Task<T> UpdateAsync(T entity)
         {

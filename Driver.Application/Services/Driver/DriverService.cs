@@ -49,6 +49,8 @@ namespace Driver.Application.Services.Driver
         {
             var randomDrivers =_randomDriverService.GenerateRandomDrivers(10);
             var entities = _mapper.Map<List<AddDriverDto>, List<Domain.Entities.Driver>>(randomDrivers);
+            var row = await _repository.AddRangeAsync(entities);
+            return row;
 
         }
 

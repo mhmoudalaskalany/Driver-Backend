@@ -1,4 +1,5 @@
-﻿using Driver.Common.DTO.Driver;
+﻿using System;
+using Driver.Common.DTO.Driver;
 
 
 // ReSharper disable once CheckNamespace
@@ -8,13 +9,14 @@ namespace Driver.Application.Mapping
     {
         public void MapDriver()
         {
-            CreateMap<Driver.Domain.Entities.Driver, DriverDto>()
+            CreateMap<Domain.Entities.Driver, DriverDto>()
                 .ReverseMap();
 
-            CreateMap<Driver.Domain.Entities.Driver, AddDriverDto>()
+            CreateMap<AddDriverDto, Domain.Entities.Driver>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
                 .ReverseMap();
 
-            CreateMap<Driver.Domain.Entities.Driver, UpdateDriverDto>()
+            CreateMap<Domain.Entities.Driver, UpdateDriverDto>()
                 .ReverseMap();
         }
     }

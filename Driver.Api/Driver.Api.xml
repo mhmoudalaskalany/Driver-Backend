@@ -35,6 +35,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Driver.Api.Controllers.V1.DriversController.AddRandomDriversAsync">
+            <summary>
+            Add Random Drivers
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Driver.Api.Controllers.V1.DriversController.UpdateAsync(Driver.Common.DTO.Driver.UpdateDriverDto)">
             <summary>
             Update Driver
