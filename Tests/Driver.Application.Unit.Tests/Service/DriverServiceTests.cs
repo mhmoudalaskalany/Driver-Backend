@@ -91,15 +91,15 @@ namespace Driver.Application.Unit.Tests.Service
             // Arrange
             var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
             var mockMapper = new Mock<IMapper>();
-            var service = new DriverService(mockRepository.Object, mockMapper.Object , _randomDriverServiceMock.Object);
+            var service = new DriverService(mockRepository.Object, mockMapper.Object, _randomDriverServiceMock.Object);
 
-            var addDriverDto = CreateAddDriverDto();
-            var addedEntity = CreateDriver();
-            var addedDto = CreateDriverDto(addedEntity.Id);
+            var addDriverDto = DriverMockHelper.CreateAddDriverDto();
+            var addedEntity = DriverMockHelper.CreateDriver();
+            var addedDto = DriverMockHelper.CreateDriverDto(addedEntity.Id);
 
-            mockMapper.Setup(x => x.Map<AddDriverDto ,  Domain.Entities.Driver>(It.IsAny<AddDriverDto>()))
+            mockMapper.Setup(x => x.Map<AddDriverDto, Domain.Entities.Driver>(It.IsAny<AddDriverDto>()))
                 .Returns(addedEntity);
-            
+
             mockRepository.Setup(repo => repo.AddAsync(addedEntity)).ReturnsAsync(addedEntity);
 
             mockMapper.Setup(x => x.Map<Domain.Entities.Driver, DriverDto>(It.IsAny<Domain.Entities.Driver>()))
@@ -113,6 +113,33 @@ namespace Driver.Application.Unit.Tests.Service
         }
 
         [Fact]
+        public async Task AddRandomDriversAsync_CreateTenItems_AndReturn_Count()
+        {
+            // Arrange
+            var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
+            var mockMapper = new Mock<IMapper>();
+            var service = new DriverService(mockRepository.Object, mockMapper.Object, _randomDriverServiceMock.Object);
+
+            var driversDtoList = DriverMockHelper.CreateDriversDtoList();
+            var driversEntities = DriverMockHelper.CreateDriversList(driversDtoList);
+
+            _randomDriverServiceMock.Setup(x => x.GenerateRandomDrivers(It.IsAny<int>()))
+                .Returns(driversDtoList);
+
+            mockMapper.Setup(x => x.Map<List<AddDriverDto>, List<Domain.Entities.Driver>>(It.IsAny<List<AddDriverDto>>()))
+                .Returns(driversEntities);
+
+            mockRepository.Setup(repo => repo.AddRangeAsync(driversEntities)).ReturnsAsync(driversEntities.Count);
+
+
+            // Act
+            var result = await service.AddRandomDriversAsync();
+
+            // Assert
+            Assert.Equal(driversEntities.Count, result);
+        }
+
+        [Fact]
         public async Task UpdateAsync_ShouldReturnUpdatedDriverDto()
         {
             // Arrange
@@ -120,9 +147,9 @@ namespace Driver.Application.Unit.Tests.Service
             var mockMapper = new Mock<IMapper>();
             var service = new DriverService(mockRepository.Object, mockMapper.Object, _randomDriverServiceMock.Object);
 
-            var updatedEntity = CreateDriver();
-            var updateDriverDto = CreateUpdateDriverDto(updatedEntity.Id);
-            var updatedDto = CreateDriverDto(updateDriverDto.Id);
+            var updatedEntity = DriverMockHelper.CreateDriver();
+            var updateDriverDto = DriverMockHelper.CreateUpdateDriverDto(updatedEntity.Id);
+            var updatedDto = DriverMockHelper.CreateDriverDto(updateDriverDto.Id);
 
 
             mockMapper.Setup(x => x.Map<UpdateDriverDto, Domain.Entities.Driver>(It.IsAny<UpdateDriverDto>()))
@@ -147,8 +174,8 @@ namespace Driver.Application.Unit.Tests.Service
             var mockRepository = new Mock<IRepository<Domain.Entities.Driver>>();
             var mockMapper = new Mock<IMapper>();
             var service = new DriverService(mockRepository.Object, mockMapper.Object, _randomDriverServiceMock.Object);
-            
-            var entityToDelete =CreateDriver();
+
+            var entityToDelete = DriverMockHelper.CreateDriver();
 
             mockRepository.Setup(repo => repo.GetAsync(entityToDelete.Id)).ReturnsAsync(entityToDelete);
             mockRepository.Setup(repo => repo.DeleteAsync(entityToDelete)).ReturnsAsync(true);
@@ -161,61 +188,6 @@ namespace Driver.Application.Unit.Tests.Service
         }
 
 
-        private AddDriverDto CreateAddDriverDto()
-        {
-            var driver = new AddDriverDto()
-            {
-                Email = "mahmoud@gmail.com",
-                FirstName = "Mahmoud",
-                LastName = "Ragab",
-                PhoneNumber = "+9999999"
-            };
-
-            return driver;
-        }
-
-
-        private UpdateDriverDto CreateUpdateDriverDto(Guid id)
-        {
-            var driver = new UpdateDriverDto()
-            {
-                Id = id,
-                Email = "mahmoud@gmail.com",
-                FirstName = "Mahmoud",
-                LastName = "Ragab",
-                PhoneNumber = "+9999999"
-            };
-
-            return driver;
-        }
-
-        private DriverDto CreateDriverDto(Guid id)
-        {
-            var driver = new DriverDto()
-            {
-                Id = id,
-                Email = "mahmoud@gmail.com",
-                FirstName = "Mahmoud",
-                LastName = "Ragab",
-                PhoneNumber = "+9999999"
-            };
-
-            return driver;
-        }
-
-
-        private Domain.Entities.Driver CreateDriver()
-        {
-            var driver = new Domain.Entities.Driver()
-            {
-                Id = Guid.NewGuid(),
-                Email = "mahmoud@gmail.com",
-                FirstName = "Mahmoud",
-                LastName = "Ragab",
-                PhoneNumber = "+9999999"
-            };
-
-            return driver;
-        }
+     
     }
 }
