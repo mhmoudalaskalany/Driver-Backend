@@ -10,7 +10,7 @@ namespace Driver.Application.Unit.Tests.Service
         {
             // Arrange
             var randomDriverService = new RandomDriverService();
-            var count = 5; // Adjust the count as needed
+            var count = 5; 
 
             // Act
             var result = randomDriverService.GenerateRandomDrivers(count);
@@ -25,7 +25,7 @@ namespace Driver.Application.Unit.Tests.Service
         {
             // Arrange
             var randomDriverService = new RandomDriverService();
-            var count = 5; // Adjust the count as needed
+            var count = 5;
 
             // Act
             var result = randomDriverService.GenerateRandomDrivers(count);
@@ -44,7 +44,7 @@ namespace Driver.Application.Unit.Tests.Service
         {
             // Arrange
             var randomDriverService = new RandomDriverService();
-            var count = 5; // Adjust the count as needed
+            var count = 5; 
 
             // Act
             var result = randomDriverService.GenerateRandomDrivers(count);
@@ -62,7 +62,7 @@ namespace Driver.Application.Unit.Tests.Service
         {
             // Arrange
             var randomDriverService = new RandomDriverService();
-            var count = 5; // Adjust the count as needed
+            var count = 5; 
 
             // Act
             var result = randomDriverService.GenerateRandomDrivers(count);
